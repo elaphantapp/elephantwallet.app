@@ -1,12 +1,9 @@
 import React from 'react'
-import { message } from 'antd'
 import styled from 'styled-components'
-
-import './style.less'
-
-import logo from '../../../images/elephant_circle_logo.png'
 import I18N from '../../I18N'
 import Wallet from './wallet'
+import images from '../../constants/images'
+// import './style.less'
 
 export default class extends React.Component {
   state = {
@@ -15,24 +12,36 @@ export default class extends React.Component {
 
   render () {
     return (
-      <Container className="footer" id="footer"><ContainerInner className="container-inner">
-        <div className="container">
-          <div className="footer-contact">
-            <div>
-              <img src={logo} className="footer-logo" alt="logo" />
-            </div>
-            <h2 className="slogan">{I18N.get('footer.title')}</h2>
-
-            <Wallet />
-          </div>
-
-        </div>
+      <Container id="footer"><ContainerInner className="container-inner">
+        <LogoContainer>
+          <Logo src={images.elephant_circle_logo_img} className="footer-logo" alt="logo" />
+        </LogoContainer>
+        <Wallet />
       </ContainerInner></Container>
     )
   }
 }
 
 const Container = styled.div`
+  position: relative;
+  text-align: center;
+  background-image: url(${images.bottom_background_img});
+  background-size: cover;
+  color: white;
+  /* @media only screen and (max-width: 768px) { */
+    /* background-image: url("../../../images/mobile/bottom_background.png"); */
+    /* } */
 `
 const ContainerInner = styled.div`
+  padding-top: 60px;
+  padding-bottom: 40px;
+`
+const LogoContainer = styled.div`
+  text-align: center;
+  position: absolute;
+  left: calc(50% - 40px);
+  top: -40px;
+`
+const Logo = styled.img`
+  height: 80px;
 `
