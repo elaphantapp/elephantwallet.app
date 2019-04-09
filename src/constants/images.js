@@ -49,6 +49,7 @@ import logo_round_mobile_img from '../../images/mobile/logo_round.png'
 import main_logo_mobile_img from '../../images/mobile/main_logo.png'
 import multi_icon_mobile_img from '../../images/mobile/multi_icon.png'
 import opensource_icon_mobile_img from '../../images/mobile/opensource_icon.png'
+import top_background_mobile_img from '../../images/mobile/top_background.png'
 
 export default {
   android_apk_button_img,
@@ -101,4 +102,5 @@ export default {
   main_logo_mobile_img,
   multi_icon_mobile_img,
   opensource_icon_mobile_img,
+  top_background_mobile_img,
 }
