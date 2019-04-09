@@ -30,6 +30,7 @@ import appstore_button_img from '../../images/appstore_button.png'
 import elephant_logo_img from '../../images/elephant_logo.png'
 import opensource_icon_img from '../../images/opensource_icon.png'
 import wallet_ios_img from '../../images/wallet_ios.png'
+import logo_img from '../../images/logo.png'
 
 // mobile
 import android_apk_button_mobile_img from '../../images/mobile/android_apk_button.png'
@@ -81,6 +82,7 @@ export default {
   elephant_logo_img,
   opensource_icon_img,
   wallet_ios_img,
+  logo_img,
 
   // mobile
   android_apk_button_mobile_img,
