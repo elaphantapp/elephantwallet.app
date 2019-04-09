@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Button, Icon } from 'antd'
 import I18N from '../../I18N'
+import { breakPoint } from '../../constants/variable'
 
 import * as colors from '../../constants/color'
 
@@ -74,6 +75,9 @@ const StyledButton = styled(Button)`
   :hover {
     color: ${colors.text.theme};
   }
+  @media only screen and (max-width: ${breakPoint.mobile}) {
+    margin-bottom: 20px;
+  }
 `
 const StyledIcon = styled(Icon)`
 `
@@ -82,6 +86,10 @@ const List = styled.ul`
   justify-content: space-between;
   margin: 20px auto;
   font-size: 14px;
+  @media only screen and (max-width: ${breakPoint.mobile}) {
+    flex-direction: column;
+    padding: 0;
+  }
 `
 const ListItem = styled.li`
   flex: 200px 0 0;

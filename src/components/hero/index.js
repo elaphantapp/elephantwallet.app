@@ -47,13 +47,14 @@ const Container = styled.div`
   position: relative;
   padding-top: 100px;
   text-align: left;
-  background: url(${topBG}) no-repeat;
+  background: url(${images.top_background_img}) no-repeat;
   background-size: cover;
   background-position-x: right;
   background-position-y: 100%;
   color: white;
   @media only screen and (max-width: ${breakPoint.mobile}) {
     overflow: hidden;
+    background: url(${images.top_background_mobile_img}) no-repeat;
   }
   `
 const ContainerInner = styled.div`
@@ -69,6 +70,9 @@ const SubTitle = styled.div`
   font-size: 13px;
   font-weight: bold;
   margin-top: 60px;
+  @media only screen and (max-width: ${breakPoint.mobile}) {
+    margin-top: 0;
+  }
 `
 const Title = styled.h1`
   font-size: 42px;
@@ -119,5 +123,8 @@ const LearnMore = styled.a`
   justify-content: center;
   :hover {
     color: inherit;
+  }
+  @media only screen and (max-width: ${breakPoint.mobile}) {
+    display: none;
   }
 `
