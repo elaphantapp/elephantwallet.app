@@ -14,7 +14,7 @@ export default class extends React.Component {
 
   render () {
     return (
-      <footer className="footer">
+      <footer className="footer" id="footer">
         <div className="container">
           <div className="footer-contact">
             <div>

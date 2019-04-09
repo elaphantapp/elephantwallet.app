@@ -19,20 +19,20 @@ export default class extends React.Component {
               <img src={I18N.get('footer.store.ios.storeImg')} className="spacer" alt="download url" />
             </a>
             <div>{I18N.get('footer.store.ios.help')}</div>
-            <Button shape="round" href={I18N.get('footer.store.ios.helpLink')} target="_blank">
-              <Icon type="apple" theme="filled" />
+            <StyledButton shape="round" href={I18N.get('footer.store.ios.helpLink')} target="_blank">
+              <StyledIcon type="apple" theme="filled" />
               {I18N.get('footer.store.ios.btnText')}
-            </Button>
+            </StyledButton>
           </ListItem>
           <ListItem>
             <a href={I18N.get('footer.store.android.storeLink')} target="_blank" rel="noopener noreferrer">
               <img src={I18N.get('footer.store.android.storeImg')} className="spacer" alt="download url" />
             </a>
             <div>{I18N.get('footer.store.android.help')}</div>
-            <Button shape="round" href={I18N.get('footer.store.android.helpLink')} target="_blank">
-              <Icon type="android" theme="filled" />
+            <StyledButton shape="round" href={I18N.get('footer.store.android.helpLink')} target="_blank">
+              <StyledIcon type="android" theme="filled" />
               {I18N.get('footer.store.android.btnText')}
-            </Button>
+            </StyledButton>
           </ListItem>
         </List>
 
@@ -57,8 +57,10 @@ const Container = styled.div`
 const Title = styled.div`
   font-size: 32px;
 `
-const StyledIcon = styled.img`
-  height: 14px;
+const StyledButton = styled(Button)`
+  color: #d14258;
+`
+const StyledIcon = styled(Icon)`
 `
 const List = styled.ul`
 `
