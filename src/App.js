@@ -7,6 +7,7 @@ import Footer from './components/footer'
 import history from './utils/routerUtils'
 
 import './app.less'
+import './common.less'
 
 // for local
 // import '../fonts/nfh2hmc.css'
