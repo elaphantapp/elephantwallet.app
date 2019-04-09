@@ -1,15 +1,27 @@
 
 export default {
+  links: {
+    elastos: 'https://elastos.org',
+    telegram: 'https://t.me/elastoswalletelephant',
+  },
   header: {
-    menu: {
-      elastosHome: 'ELASTOS HOMEPAGE',
-      blockchain: 'TELEGRAM GROUP',
-      teams: 'GITHUB REPO',
-      language: {
-        title: 'LANGUAGE',
-        en: 'English',
-        zh: '中文 (中国)',
+    elastosHome: 'ELASTOS HOMEPAGE',
+    telegram: 'TELEGRAM GROUP',
+    github: {
+      title: 'GITHUB REPO',
+      ios: {
+        title: 'IOS',
+        url: 'https://github.com/elastos/Elastos.App.Wallet.Elephant.iOS',
       },
+      android: {
+        title: 'ANDROID',
+        url: 'https://github.com/elastos/Elastos.App.Wallet.Elephant.Android',
+      },
+    },
+    language: {
+      title: 'LANGUAGE',
+      en: 'English',
+      zh: '中文 (中国)',
     },
   },
 
@@ -58,19 +70,26 @@ export default {
       ios: {
         help: 'Chinese users please use the button below for help with creating and Apple ID.',
         btnText: 'Apple ID Help',
+        helpLink: 'https://www.elastos.org/downloads/apple-id-tutorial.pdf',
+        storeLink: 'https://itunes.apple.com/app/elastos-elephant-wallet/id1446241279',
       },
       android: {
         help: 'Use the button below to directly download the apk.',
         btnText: 'Android apk',
+        helpLink: 'https://download.elastos.org/app/elephantwallet/elephant_wallet.apk',
+        storeLink: 'https://play.google.com/store/apps/details?id=com.elastos.wallet',
       },
     },
     qrCode: {
       title: 'You can also use the QR codes below:',
       ios: {
         title: 'iOS Version',
+        url: '../images/wallet_android.png',
       },
-      android: 'Android Version',
-      'android.download': 'Download',
+      android: {
+        title: 'Android Version',
+        url: '../images/wallet_ios.png',
+      },
     },
   },
 }
