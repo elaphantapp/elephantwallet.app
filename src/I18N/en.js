@@ -1,3 +1,4 @@
+import images from '../constants/images'
 
 export default {
   links: {
@@ -72,23 +73,25 @@ export default {
         btnText: 'Apple ID Help',
         helpLink: 'https://www.elastos.org/downloads/apple-id-tutorial.pdf',
         storeLink: 'https://itunes.apple.com/app/elastos-elephant-wallet/id1446241279',
+        storeImg: images.appstore_button_img,
       },
       android: {
         help: 'Use the button below to directly download the apk.',
         btnText: 'Android apk',
         helpLink: 'https://download.elastos.org/app/elephantwallet/elephant_wallet.apk',
         storeLink: 'https://play.google.com/store/apps/details?id=com.elastos.wallet',
+        storeImg: images.googleplay_button_img,
       },
     },
     qrCode: {
       title: 'You can also use the QR codes below:',
       ios: {
         title: 'iOS Version',
-        url: '../images/wallet_android.png',
+        url: images.wallet_android_img,
       },
       android: {
         title: 'Android Version',
-        url: '../images/wallet_ios.png',
+        url: images.wallet_ios_img,
       },
     },
   },

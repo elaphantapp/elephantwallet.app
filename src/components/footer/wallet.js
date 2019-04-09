@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Button } from 'antd'
+import { Button, Icon } from 'antd'
 
 // import './style.less'
 
@@ -16,17 +16,23 @@ export default class extends React.Component {
         <List>
           <ListItem>
             <a href={I18N.get('footer.store.ios.storeLink')} target="_blank" rel="noopener noreferrer">
-              <img src={I18N.get('footer.store.ios.url')} className="spacer" alt="download url" />
+              <img src={I18N.get('footer.store.ios.storeImg')} className="spacer" alt="download url" />
             </a>
             <div>{I18N.get('footer.store.ios.help')}</div>
-            <Button>{I18N.get('footer.store.ios.helpLink')}</Button>
+            <Button shape="round" href={I18N.get('footer.store.ios.helpLink')} target="_blank">
+              <Icon type="apple" theme="filled" />
+              {I18N.get('footer.store.ios.btnText')}
+            </Button>
           </ListItem>
           <ListItem>
             <a href={I18N.get('footer.store.android.storeLink')} target="_blank" rel="noopener noreferrer">
-              <img src={I18N.get('footer.store.android.url')} className="spacer" alt="download url" />
+              <img src={I18N.get('footer.store.android.storeImg')} className="spacer" alt="download url" />
             </a>
             <div>{I18N.get('footer.store.android.help')}</div>
-            <Button>{I18N.get('footer.store.android.helpLink')}</Button>
+            <Button shape="round" href={I18N.get('footer.store.android.helpLink')} target="_blank">
+              <Icon type="android" theme="filled" />
+              {I18N.get('footer.store.android.btnText')}
+            </Button>
           </ListItem>
         </List>
 
@@ -50,6 +56,9 @@ const Container = styled.div`
 `
 const Title = styled.div`
   font-size: 32px;
+`
+const StyledIcon = styled.img`
+  height: 14px;
 `
 const List = styled.ul`
 `
