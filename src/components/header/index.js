@@ -5,9 +5,9 @@ import MediaQuery from 'react-responsive'
 import { Drawer, Dropdown, Menu, Icon } from 'antd'
 import { breakPoint } from '../../constants/variable'
 
-import logo from "../../../images/elephant_logo.png"
-import dropdown from "../../../images/language_dropdown.png"
-import arrow from "../../../images/header_arrow_right.png"
+import logo from '../../../images/elephant_logo.png'
+import dropdown from '../../../images/language_dropdown.png'
+import arrow from '../../../images/header_arrow_right.png'
 
 import I18N from '../../I18N'
 
@@ -17,11 +17,11 @@ export default class App extends React.Component {
   constructor () {
     super()
     this.state = {
-      drawerVisible: false
+      drawerVisible: false,
     }
   }
 
-  render() {
+  render () {
     return (
       <div className="header">
         <div className="logo">
@@ -32,13 +32,15 @@ export default class App extends React.Component {
 
         <MediaQuery minWidth={breakPoint.mobile}>
           <NavBar className="nav">
-            <a href={I18N.getLang() === 'en' ? 'https://news.elastos.org' : 'https://news-zh.elastos.org'} target="_blank">{I18N.get('header.menu.news')}</a>
-            <a href="https://blockchain.elastos.org/" target="_blank">{I18N.get('header.menu.blockchain')}</a>
-            <a href="/team">{I18N.get('header.menu.teams')}</a>
-            <a href="/roadmap">{I18N.get('header.menu.roadmap')}</a>
-            <a href={I18N.getLang() === 'en' ? 'https://www.elastos.org/downloads/elastos_whitepaper_en.pdf' : 'https://www.elastos.org/downloads/elastos_whitepaper_zh.pdf'} target="_blank">{I18N.get('header.menu.whitepaper')}</a>
+            <a href={I18N.get('links.elastos')} target="_blank" rel="noopener noreferrer">{I18N.get('header.elastosHome')}</a>
+            <a href={I18N.get('links.telegram')} target="_blank" rel="noopener noreferrer">{I18N.get('header.telegram')}</a>
+            <Dropdown overlay={this.getGithubMenu()}>
+              <a href="#">{I18N.get('header.github.title')}
+                <img src={dropdown} className="lan-dropdown" alt="dropdown" />
+              </a>
+            </Dropdown>
             <Dropdown overlay={this.getLanguageMenu()}>
-              <a href="#">{I18N.get('header.menu.language')}
+              <a href="#">{I18N.get('header.language.title')}
                 <img src={dropdown} className="lan-dropdown" alt="dropdown" />
               </a>
             </Dropdown>
@@ -61,46 +63,58 @@ export default class App extends React.Component {
     )
   }
 
-  getLanguageMenu() {
-    return (
-    <Menu>
-      <Menu.Item>
-        <a onClick={() => I18N.setLang('en')}>{I18N.get('header.menu.language.en')}</a>
-      </Menu.Item>
-      <Menu.Item>
-        <a onClick={() => I18N.setLang('zh')}>{I18N.get('header.menu.language.zh')}</a>
-      </Menu.Item>
-    </Menu>
-    )
-  }
-
-
-  getMobileMenu() {
+  getGithubMenu () {
     return (
       <Menu>
         <Menu.Item>
-          <a href={I18N.getLang() === 'en' ? 'https://news.elastos.org' : 'https://news-zh.elastos.org'} rel="noopener noreferrer" target="_blank">{I18N.get('header.menu.news')}</a>
+          <a href={I18N.get('header.github.ios.url')} target="_blank" rel="noopener noreferrer">{I18N.get('header.github.ios.title')}</a>
         </Menu.Item>
         <Menu.Item>
-          <a href="https://blockchain.elastos.org/" rel="noopener noreferrer" target="_blank">{I18N.get('header.menu.blockchain')}</a>
+          <a href={I18N.get('header.github.android.url')} target="_blank" rel="noopener noreferrer">{I18N.get('header.github.android.title')}</a>
+        </Menu.Item>
+      </Menu>
+    )
+  }
+
+  getLanguageMenu () {
+    return (
+      <Menu>
+        <Menu.Item>
+          <a onClick={() => I18N.setLang('en')}>{I18N.get('header.language.en')}</a>
         </Menu.Item>
         <Menu.Item>
-          <a href="/team" rel="noopener noreferrer">{I18N.get('header.menu.teams')}</a>
+          <a onClick={() => I18N.setLang('zh')}>{I18N.get('header.language.zh')}</a>
+        </Menu.Item>
+      </Menu>
+    )
+  }
+
+  getMobileMenu () {
+    return (
+      <Menu>
+        <Menu.Item>
+          <a href={I18N.get('links.elastos')} target="_blank" rel="noopener noreferrer">{I18N.get('header.elastosHome')}</a>
         </Menu.Item>
         <Menu.Item>
-          <a href="/roadmap" rel="noopener noreferrer">{I18N.get('header.menu.roadmap')}</a>
-        </Menu.Item>
-        <Menu.Item>
-          <a href={I18N.getLang() === 'en' ? 'https://www.elastos.org/downloads/elastos_whitepaper_en.pdf' : 'https://www.elastos.org/downloads/elastos_whitepaper_zh.pdf'} rel="noopener noreferrer" target="_blank">{I18N.get('header.menu.whitepaper')}</a>
+          <a href={I18N.get('links.elastos')} target="_blank" rel="noopener noreferrer">{I18N.get('header.telegram')}</a>
         </Menu.Item>
         <Menu.Item>
           &nbsp;
         </Menu.Item>
         <Menu.Item>
-          <a onClick={() => I18N.setLang('en')}>{I18N.get('header.menu.language.en')}</a>
+          <a href={I18N.get('header.github.android.url')} target="_blank" rel="noopener noreferrer">{I18N.get('header.github.android.title')}</a>
         </Menu.Item>
         <Menu.Item>
-          <a onClick={() => I18N.setLang('zh')}>{I18N.get('header.menu.language.zh')}</a>
+          <a href={I18N.get('header.github.ios.url')} target="_blank" rel="noopener noreferrer">{I18N.get('header.github.ios.title')}</a>
+        </Menu.Item>
+        <Menu.Item>
+          &nbsp;
+        </Menu.Item>
+        <Menu.Item>
+          <a onClick={() => I18N.setLang('en')}>{I18N.get('header.language.en')}</a>
+        </Menu.Item>
+        <Menu.Item>
+          <a onClick={() => I18N.setLang('zh')}>{I18N.get('header.language.zh')}</a>
         </Menu.Item>
       </Menu>
     )
