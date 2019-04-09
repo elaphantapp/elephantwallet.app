@@ -1,5 +1,6 @@
 import React from 'react'
 import { message } from 'antd'
+import styled from 'styled-components'
 
 import './style.less'
 
@@ -14,7 +15,7 @@ export default class extends React.Component {
 
   render () {
     return (
-      <footer className="footer" id="footer">
+      <Container className="footer" id="footer"><ContainerInner className="container-inner">
         <div className="container">
           <div className="footer-contact">
             <div>
@@ -26,8 +27,12 @@ export default class extends React.Component {
           </div>
 
         </div>
-      </footer>
+      </ContainerInner></Container>
     )
   }
 }
 
+const Container = styled.div`
+`
+const ContainerInner = styled.div`
+`
