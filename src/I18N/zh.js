@@ -45,6 +45,8 @@ export default {
       telegram: {
         title: 'Join Telegram',
         desc: 'Discuss features and find answers to your questions in our telegram group. Everyone is welcome to join and come chat about the app.',
+        btnText: 'Telegram',
+        link: 'https://t.me/elastoswalletelephant',
       },
     },
     feature: {
