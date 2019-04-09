@@ -13,43 +13,45 @@ export default class extends React.Component {
   render () {
     return (
       <Container id="intro"><ContainerInner className="container-inner">
-        <Row>
-          <Col>
-            <div>{I18N.get('intro.about.title')}</div>
+        <StyledRow gutter={24}>
+          <Col xs={24} sm={8}>
+            <Title>{I18N.get('intro.about.title')}</Title>
           </Col>
-          <Col>
-            <div>{I18N.get('intro.about.desc')}</div>
+          <Col xs={24} sm={16}>
+            <Desc>{I18N.get('intro.about.desc')}</Desc>
           </Col>
-        </Row>
-        <Row>
-          <Col>
-            <div>{I18N.get('intro.social.telegram.title')}</div>
+        </StyledRow>
+        <StyledRow gutter={24}>
+          <Col xs={24} sm={8}>
+            <Title>{I18N.get('intro.social.telegram.title')}</Title>
           </Col>
-          <Col>
-            <div>{I18N.get('intro.social.telegram.desc')}</div>
-            <SocialButton href={I18N.get('intro.social.telegram.url')} shape="round" target="_blank" rel="noopener noreferrer">
-              <BtnImg src={images.telegram_icon_img} className="spacer" alt="download url" />
-              <BtnText>{I18N.get('intro.social.telegram.btnText')}</BtnText>
-            </SocialButton>
+          <Col xs={24} sm={16}>
+            <Desc>{I18N.get('intro.social.telegram.desc')}</Desc>
+            <BtnContainer>
+              <SocialButton href={I18N.get('intro.social.telegram.url')} shape="round" target="_blank" rel="noopener noreferrer">
+                <BtnImg src={images.telegram_icon_img} className="spacer" alt="download url" />
+                <BtnText>{I18N.get('intro.social.telegram.btnText')}</BtnText>
+              </SocialButton>
+            </BtnContainer>
           </Col>
-        </Row>
-        <Row>
-          <Col>
-            <img src={images.did_icon_img} className="spacer" alt="download url" />
-            <div>{I18N.get('intro.feature.feature_1.title')}</div>
-            <div>{I18N.get('intro.feature.feature_1.desc')}</div>
-          </Col>
-          <Col>
-            <img src={images.multi_icon_img} className="spacer" alt="download url" />
-            <div>{I18N.get('intro.feature.feature_2.title')}</div>
-            <div>{I18N.get('intro.feature.feature_2.desc')}</div>
-          </Col>
-          <Col>
-            <img src={images.opensource_icon_img} className="spacer" alt="download url" />
-            <div>{I18N.get('intro.feature.feature_3.title')}</div>
-            <div>{I18N.get('intro.feature.feature_3.desc')}</div>
-          </Col>
-        </Row>
+        </StyledRow>
+        <FeatureRow gutter={24}>
+          <FeatureItem xs={24} sm={8}>
+            <FeatureImg src={images.did_icon_img} className="spacer" alt="download url" />
+            <FeatureTitle>{I18N.get('intro.feature.feature_1.title')}</FeatureTitle>
+            <FeatureDesc>{I18N.get('intro.feature.feature_1.desc')}</FeatureDesc>
+          </FeatureItem>
+          <FeatureItem xs={24} sm={8}>
+            <FeatureImg src={images.multi_icon_img} className="spacer" alt="download url" />
+            <FeatureTitle>{I18N.get('intro.feature.feature_2.title')}</FeatureTitle>
+            <FeatureDesc>{I18N.get('intro.feature.feature_2.desc')}</FeatureDesc>
+          </FeatureItem>
+          <FeatureItem xs={24} sm={8}>
+            <FeatureImg src={images.opensource_icon_img} className="spacer" alt="download url" />
+            <FeatureTitle>{I18N.get('intro.feature.feature_3.title')}</FeatureTitle>
+            <FeatureDesc>{I18N.get('intro.feature.feature_3.desc')}</FeatureDesc>
+          </FeatureItem>
+        </FeatureRow>
       </ContainerInner></Container>
     )
   }
@@ -57,33 +59,78 @@ export default class extends React.Component {
 
 const Container = styled.div`
   position: relative;
-  margin: 80px 0 100px;
   background-color: white;
+  color: ${colors.text.theme};
   @media only screen and (max-width: ${breakPoint.mobile}) {
     overflow: hidden;
   }
 `
 
 const ContainerInner = styled.div`
+  max-width: 960px!important;
+  margin: 40px auto!important;
   @media only screen and (max-width: ${breakPoint.mobile}) {
   }
 `
-
-const Title = styled.h1`
-  font-size: 50px;
-  font-weight: 300;
+const StyledRow = styled(Row)`
+  text-align: left;
+  margin-bottom: 30px;
+`
+const Title = styled.h2`
+  color: ${colors.text.theme};
+  font-size: 20px;
   @media only screen and (max-width: ${breakPoint.mobile}) {
     font-size: 42px;
   }
 `
+const Desc = styled.div`
+  font-size: 14px;
+`
+const FeatureRow = styled(Row)`
+  padding-top: 30px;
+  margin-bottom: 30px;
+  border-top: 1px solid ${colors.border.theme};
+`
+const FeatureItem = styled(Col)`
+  text-align: center;
+`
+const FeatureImg = styled.img`
+  height: 100px;
+`
+const FeatureTitle = styled.h3`
+  color: ${colors.text.theme};
+  font-size: 16px;
+  margin: 15px auto;
+  @media only screen and (max-width: ${breakPoint.mobile}) {
+    font-size: 42px;
+  }
+`
+const FeatureDesc = styled.div`
+  font-size: 14px;
+  line-height: 1.5em;
+`
+
+const BtnContainer = styled.div`
+  text-align: center;
+  margin-top: 20px;
+`
 
 const SocialButton = styled(Button)`
+  border: none;
   background-color: ${colors.bg.theme};
   color: white;
+  font-weight: 14px;
+  padding: 0 20px;
+  :hover {
+    background-color: ${colors.bg.theme};
+    color: white;
+  }
 `
 const BtnImg = styled.img`
   height: 16px;
+  margin-right: 10px;
 `
 
 const BtnText = styled.span`
+
 `

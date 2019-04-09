@@ -39,7 +39,7 @@ export default {
   intro: {
     about: {
       title: 'About our app',
-      desc: 'Your personal digital property steward. You can manage your Bitcoin, Ethereum, ELA and many other digital coins&#59; as well as the Elastos DID, which is based on the blockchain digital identity, allowing you to master your own data.',
+      desc: 'Your personal digital property steward. You can manage your Bitcoin, Ethereum, ELA and many other digital coins; as well as the Elastos DID, which is based on the blockchain digital identity, allowing you to master your own data.',
     },
     social: {
       telegram: {
