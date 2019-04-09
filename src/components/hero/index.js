@@ -1,9 +1,9 @@
 import React from 'react'
-import { Row, Col, Button, Icon } from 'antd'
+import { Row, Col, Button } from 'antd'
+import MediaQuery from 'react-responsive'
 import styled from 'styled-components'
 import I18N from '../../I18N'
 
-import topBG from '../../../images/top_background.png'
 import { breakPoint } from '../../constants/variable'
 import images from '../../constants/images'
 import * as colors from '../../constants/color'
@@ -29,7 +29,12 @@ export default class extends React.Component {
             <Help>{I18N.get('hero.help')}</Help>
           </Col>
           <Col xs={24} sm={10}>
-            <WalletImg src={images.hero_phone_image_img} alt="wallet image" />
+            <MediaQuery maxWidth={breakPoint.mobile}>
+              <WalletImg mobile src={images.hero_phone_image_mobile_img} alt="wallet image" />
+            </MediaQuery>
+            <MediaQuery minWidth={breakPoint.mobile}>
+              <WalletImg src={images.hero_phone_image_img} alt="wallet image" />
+            </MediaQuery>
           </Col>
         </Row>
         <BottomRow>
@@ -53,8 +58,9 @@ const Container = styled.div`
   background-position-y: 100%;
   color: white;
   @media only screen and (max-width: ${breakPoint.mobile}) {
-    overflow: hidden;
     background: url(${images.top_background_mobile_img}) no-repeat;
+    margin-bottom: 200px;
+    padding-bottom: 100px;
   }
   `
 const ContainerInner = styled.div`
@@ -79,8 +85,10 @@ const Title = styled.h1`
   font-weight: bolder;
   color: white;
   margin-top: 15px;
+  line-height: 1.2em;
+  margin: 30px auto 40px;
   @media only screen and (max-width: ${breakPoint.mobile}) {
-    font-size: 40px;
+    font-size: 36px;
   }
 `
 const StyledButton = styled(Button)`
@@ -106,7 +114,10 @@ const Help = styled.div`
   font-size: 13px;
 `
 const WalletImg = styled.img`
-
+  @media only screen and (max-width: ${breakPoint.mobile}) {
+    position: absolute;
+    top: 40px;
+  }
 `
 const DownArrow = styled.img`
   height: 20px;

@@ -1,9 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import I18N from '../../I18N'
+// import I18N from '../../I18N'
 import Wallet from './wallet'
 import images from '../../constants/images'
-// import './style.less'
 
 export default class extends React.Component {
   state = {

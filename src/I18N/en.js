@@ -6,7 +6,7 @@ export default {
     telegram: 'https://t.me/elastoswalletelephant',
   },
   header: {
-    elastosHome: 'ELASTOS HOMEPAGE',
+    elastos: 'ELASTOS HOMEPAGE',
     telegram: 'TELEGRAM GROUP',
     github: {
       title: 'GITHUB REPO',

@@ -7,7 +7,7 @@ import { breakPoint } from '../../constants/variable'
 
 import logo from '../../../images/elephant_logo.png'
 import dropdown from '../../../images/language_dropdown.png'
-import arrow from '../../../images/header_arrow_right.png'
+import * as colors from '../../constants/color'
 
 import I18N from '../../I18N'
 
@@ -23,25 +23,25 @@ export default class App extends React.Component {
 
   render () {
     return (
-      <div className="header">
-        <div className="logo">
+      <Container>
+        <LogoContainer>
           <a href="/">
             <Logo src={logo} />
           </a>
-        </div>
+        </LogoContainer>
 
         <MediaQuery minWidth={breakPoint.mobile}>
-          <NavBar className="nav">
-            <a href={I18N.get('links.elastos')} target="_blank" rel="noopener noreferrer">{I18N.get('header.elastosHome')}</a>
+          <NavBar>
+            <a href={I18N.get('links.elastos')} target="_blank" rel="noopener noreferrer">{I18N.get('header.elastos')}</a>
             <a href={I18N.get('links.telegram')} target="_blank" rel="noopener noreferrer">{I18N.get('header.telegram')}</a>
             <Dropdown overlay={this.getGithubMenu()}>
               <a href="#">{I18N.get('header.github.title')}
-                <img src={dropdown} className="lan-dropdown" alt="dropdown" />
+                <DropdownIcon src={dropdown} alt="dropdown" />
               </a>
             </Dropdown>
             <Dropdown overlay={this.getLanguageMenu()}>
               <a href="#">{I18N.get('header.language.title')}
-                <img src={dropdown} className="lan-dropdown" alt="dropdown" />
+                <DropdownIcon src={dropdown} alt="dropdown" />
               </a>
             </Dropdown>
           </NavBar>
@@ -59,7 +59,7 @@ export default class App extends React.Component {
             {this.getMobileMenu()}
           </Drawer>
         </MediaQuery>
-      </div>
+      </Container>
     )
   }
 
@@ -67,10 +67,10 @@ export default class App extends React.Component {
     return (
       <Menu>
         <Menu.Item>
-          <a href={I18N.get('header.github.ios.url')} target="_blank" rel="noopener noreferrer">{I18N.get('header.github.ios.title')}</a>
+          <MenuLink href={I18N.get('header.github.ios.url')} target="_blank" rel="noopener noreferrer">{I18N.get('header.github.ios.title')}</MenuLink>
         </Menu.Item>
         <Menu.Item>
-          <a href={I18N.get('header.github.android.url')} target="_blank" rel="noopener noreferrer">{I18N.get('header.github.android.title')}</a>
+          <MenuLink href={I18N.get('header.github.android.url')} target="_blank" rel="noopener noreferrer">{I18N.get('header.github.android.title')}</MenuLink>
         </Menu.Item>
       </Menu>
     )
@@ -80,10 +80,10 @@ export default class App extends React.Component {
     return (
       <Menu>
         <Menu.Item>
-          <a onClick={() => I18N.setLang('en')}>{I18N.get('header.language.en')}</a>
+          <MenuLink onClick={() => I18N.setLang('en')}>{I18N.get('header.language.en')}</MenuLink>
         </Menu.Item>
         <Menu.Item>
-          <a onClick={() => I18N.setLang('zh')}>{I18N.get('header.language.zh')}</a>
+          <MenuLink onClick={() => I18N.setLang('zh')}>{I18N.get('header.language.zh')}</MenuLink>
         </Menu.Item>
       </Menu>
     )
@@ -93,50 +93,71 @@ export default class App extends React.Component {
     return (
       <Menu>
         <Menu.Item>
-          <a href={I18N.get('links.elastos')} target="_blank" rel="noopener noreferrer">{I18N.get('header.elastosHome')}</a>
+          <MenuLink href={I18N.get('links.elastos')} target="_blank" rel="noopener noreferrer">{I18N.get('header.elastos')}</MenuLink>
         </Menu.Item>
         <Menu.Item>
-          <a href={I18N.get('links.elastos')} target="_blank" rel="noopener noreferrer">{I18N.get('header.telegram')}</a>
+          <MenuLink href={I18N.get('links.telegram')} target="_blank" rel="noopener noreferrer">{I18N.get('header.telegram')}</MenuLink>
+        </Menu.Item>
+        <Menu.Item>
+          <span style={{ color: colors.text.theme }}>Github:</span>
+        </Menu.Item>
+        <Menu.Item>
+          <MenuLink href={I18N.get('header.github.android.url')} target="_blank" rel="noopener noreferrer">{I18N.get('header.github.android.title')}</MenuLink>
+        </Menu.Item>
+        <Menu.Item>
+          <MenuLink href={I18N.get('header.github.ios.url')} target="_blank" rel="noopener noreferrer">{I18N.get('header.github.ios.title')}</MenuLink>
         </Menu.Item>
         <Menu.Item>
           &nbsp;
         </Menu.Item>
         <Menu.Item>
-          <a href={I18N.get('header.github.android.url')} target="_blank" rel="noopener noreferrer">{I18N.get('header.github.android.title')}</a>
+          <MenuLink onClick={() => I18N.setLang('en')}>{I18N.get('header.language.en')}</MenuLink>
         </Menu.Item>
         <Menu.Item>
-          <a href={I18N.get('header.github.ios.url')} target="_blank" rel="noopener noreferrer">{I18N.get('header.github.ios.title')}</a>
-        </Menu.Item>
-        <Menu.Item>
-          &nbsp;
-        </Menu.Item>
-        <Menu.Item>
-          <a onClick={() => I18N.setLang('en')}>{I18N.get('header.language.en')}</a>
-        </Menu.Item>
-        <Menu.Item>
-          <a onClick={() => I18N.setLang('zh')}>{I18N.get('header.language.zh')}</a>
+          <MenuLink onClick={() => I18N.setLang('zh')}>{I18N.get('header.language.zh')}</MenuLink>
         </Menu.Item>
       </Menu>
     )
   }
 }
 
+const Container = styled.div`
+  display: flex;
+  color: white;
+  justify-content: space-between;
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+`
 const DrawerButton = styled.a`
   font-size: 32px;
-  color: #0F2D3B;
+  color: white;
+  margin-right: 20px;
+`
+const MenuLink = styled.a`
+  color: ${colors.text.theme}!important;
 `
 
 const NavBar = styled.div`
   padding-top: 24px;
   font-size: 13px;
   font-weight: 400;
+  a {
+    color: inherit;
+    font-weight: 300;
+    margin-right: 30px;
+    text-transform: uppercase;
+  }
 `
 
+const LogoContainer = styled.div`
+  padding-left: 40px;
+`
 const Logo = styled.img`
   width: 148px;
   padding-top: 12px;
 `
-
-const TopLink = styled.div`
-  white-space: nowrap;
+const DropdownIcon = styled.img`
+  width: 15px;
+  margin-left: 5px;
 `

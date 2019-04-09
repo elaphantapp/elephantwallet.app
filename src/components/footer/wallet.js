@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Button, Icon } from 'antd'
 import I18N from '../../I18N'
 import { breakPoint } from '../../constants/variable'
-
 import * as colors from '../../constants/color'
 
 export default class extends React.Component {
@@ -38,11 +37,11 @@ export default class extends React.Component {
         <QRTitle>{I18N.get('footer.qrCode.title')}</QRTitle>
         <List>
           <ListItem>
-            <div className="tag">{I18N.get('footer.qrCode.ios.title')}</div>
+            <ImgTitle>{I18N.get('footer.qrCode.ios.title')}</ImgTitle>
             <QRImg src={I18N.get('footer.qrCode.ios.url')} className="spacer" alt="wallet" />
           </ListItem>
           <ListItem>
-            <div className="tag">{I18N.get('footer.qrCode.android.title')}</div>
+            <ImgTitle>{I18N.get('footer.qrCode.android.title')}</ImgTitle>
             <QRImg src={I18N.get('footer.qrCode.android.url')} className="spacer" alt="wallet" />
           </ListItem>
         </List>
@@ -59,11 +58,19 @@ const Title = styled.h2`
   font-size: 32px;
   font-weight: 400;
   color: white;
+  @media only screen and (max-width: ${breakPoint.mobile}) {
+    font-size: 20px;
+  }
 `
 const Help = styled.div`
   height: 4rem;
   margin-top: 20px;
   margin-bottom: 20px;
+  @media only screen and (max-width: ${breakPoint.mobile}) {
+    height: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
 `
 const StoreImg = styled.img`
   height: 70px;
@@ -84,24 +91,26 @@ const StyledIcon = styled(Icon)`
 const List = styled.ul`
   display: flex;
   justify-content: space-between;
-  margin: 20px auto;
+  margin-top: 20px;
   font-size: 14px;
   @media only screen and (max-width: ${breakPoint.mobile}) {
     flex-direction: column;
-    padding: 0;
   }
 `
 const ListItem = styled.li`
   flex: 200px 0 0;
+  margin-bottom: 20px;
 `
 const QRTitle = styled.h4`
   font-size: 16px;
   color: white;
-  margin-top: 30px;
   padding-top: 30px;
   border-top: 1px solid white;
 `
 
+const ImgTitle = styled.div`
+  margin-bottom: 10px;
+`
 const QRImg = styled.img`
   height: 200px;
 `

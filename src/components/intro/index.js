@@ -14,7 +14,7 @@ export default class extends React.Component {
     return (
       <Container id="intro"><ContainerInner className="container-inner">
         <StyledRow gutter={24}>
-          <Col xs={24} sm={8}>
+          <Col xs={24} sm={{ span: 6, offset: 2 }}>
             <Title>{I18N.get('intro.about.title')}</Title>
           </Col>
           <Col xs={24} sm={16}>
@@ -22,13 +22,13 @@ export default class extends React.Component {
           </Col>
         </StyledRow>
         <StyledRow gutter={24}>
-          <Col xs={24} sm={8}>
+          <Col xs={24} sm={{ span: 6, offset: 2 }}>
             <Title>{I18N.get('intro.social.telegram.title')}</Title>
           </Col>
           <Col xs={24} sm={16}>
             <Desc>{I18N.get('intro.social.telegram.desc')}</Desc>
             <BtnContainer>
-              <SocialButton href={I18N.get('intro.social.telegram.url')} shape="round" target="_blank" rel="noopener noreferrer">
+              <SocialButton href={I18N.get('links.telegram')} shape="round" target="_blank" rel="noopener noreferrer">
                 <BtnImg src={images.telegram_icon_img} className="spacer" alt="download url" />
                 <BtnText>{I18N.get('intro.social.telegram.btnText')}</BtnText>
               </SocialButton>
@@ -78,21 +78,21 @@ const StyledRow = styled(Row)`
 `
 const Title = styled.h2`
   color: ${colors.text.theme};
-  font-size: 20px;
-  @media only screen and (max-width: ${breakPoint.mobile}) {
-    font-size: 42px;
-  }
+  font-size: 24px;
+  /* @media only screen and (max-width: ${breakPoint.mobile}) {
+  } */
 `
 const Desc = styled.div`
   font-size: 14px;
 `
 const FeatureRow = styled(Row)`
-  padding-top: 30px;
-  margin-bottom: 30px;
+  padding-top: 40px;
+  margin-top: 40px;
   border-top: 1px solid ${colors.border.theme};
 `
 const FeatureItem = styled(Col)`
   text-align: center;
+  margin-bottom: 30px;
 `
 const FeatureImg = styled.img`
   height: 100px;
@@ -101,9 +101,6 @@ const FeatureTitle = styled.h3`
   color: ${colors.text.theme};
   font-size: 16px;
   margin: 15px auto;
-  @media only screen and (max-width: ${breakPoint.mobile}) {
-    font-size: 42px;
-  }
 `
 const FeatureDesc = styled.div`
   font-size: 14px;
