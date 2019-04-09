@@ -1,8 +1,8 @@
-import createHistory from 'history/createBrowserHistory'
+import { createBrowserHistory } from 'history'
 
 const genHistory = () => {
   if (typeof document !== 'undefined') {
-    return createHistory()
+    return createBrowserHistory()
   }
   return {}
 }
