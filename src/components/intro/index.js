@@ -5,13 +5,14 @@ import I18N from '../../I18N'
 import { breakPoint } from '../../constants/variable'
 import images from '../../constants/images'
 import * as colors from '../../constants/color'
+import '../../common.less'
 
 export default class extends React.Component {
   state = {
   }
   render () {
     return (
-      <Container id="intro">
+      <Container id="intro"><ContainerInner className="container-inner">
         <Row>
           <Col>
             <div>{I18N.get('intro.about.title')}</div>
@@ -49,7 +50,7 @@ export default class extends React.Component {
             <div>{I18N.get('intro.feature.feature_3.desc')}</div>
           </Col>
         </Row>
-      </Container>
+      </ContainerInner></Container>
     )
   }
 }
@@ -61,7 +62,13 @@ const Container = styled.div`
   @media only screen and (max-width: ${breakPoint.mobile}) {
     overflow: hidden;
   }
-  `
+`
+
+const ContainerInner = styled.div`
+  @media only screen and (max-width: ${breakPoint.mobile}) {
+  }
+`
+
 const Title = styled.h1`
   font-size: 50px;
   font-weight: 300;
