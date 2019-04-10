@@ -63,27 +63,27 @@ export default {
         Html, Head, Body, children, renderMeta,
       } = this.props
 
-      const gaScript = `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+      // const gaScript = `
+      //   window.dataLayer = window.dataLayer || [];
+      //   function gtag(){dataLayer.push(arguments);}
+      //   gtag('js', new Date());
 
-        gtag('config', 'UA-123632417-1');
-      `
+      //   gtag('config', 'UA-123632417-1');
+      // `
       return (
         <Html lang="en-US">
           <Head>
             <meta charSet="UTF-8" />
-            <title>Elastos | Welcome to the Modern Internet</title>
+            <title>Elephant Wallet</title>
             <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
             <meta name="description" content="" />
             <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
             <link rel="stylesheet" href="https://use.typekit.net/nfh2hmc.css"/>
             <link rel="stylesheet" href="/css/normalize.css"/>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            {/* <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> */}
             {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
-            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123632417-1" />
-            <script dangerouslySetInnerHTML={{ __html: gaScript }} />
+            {/* <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123632417-1" /> */}
+            {/* <script dangerouslySetInnerHTML={{ __html: gaScript }} /> */}
 
             <link rel="shortcut icon" href="/images/favicon.png" />
             {renderMeta.styleTags}
