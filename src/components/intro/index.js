@@ -6,53 +6,58 @@ import { breakPoint } from '../../constants/variable'
 import images from '../../constants/images'
 import * as colors from '../../constants/color'
 import '../../common.less'
+import Footer from '../footer'
 
 export default class extends React.Component {
   state = {
   }
   render () {
     return (
-      <Container id="intro"><ContainerInner className="container-inner">
-        <StyledRow gutter={24}>
-          <Col xs={24} sm={{ span: 6, offset: 2 }}>
-            <Title>{I18N.get('intro.about.title')}</Title>
-          </Col>
-          <Col xs={24} sm={16}>
-            <Desc>{I18N.get('intro.about.desc')}</Desc>
-          </Col>
-        </StyledRow>
-        <StyledRow gutter={24}>
-          <Col xs={24} sm={{ span: 6, offset: 2 }}>
-            <Title>{I18N.get('intro.social.telegram.title')}</Title>
-          </Col>
-          <Col xs={24} sm={16}>
-            <Desc>{I18N.get('intro.social.telegram.desc')}</Desc>
-            <BtnContainer>
-              <SocialButton href={I18N.get('links.telegram')} shape="round" target="_blank" rel="noopener noreferrer">
-                <BtnImg src={images.telegram_icon_img} className="spacer" alt="download url" />
-                <BtnText>{I18N.get('intro.social.telegram.btnText')}</BtnText>
-              </SocialButton>
-            </BtnContainer>
-          </Col>
-        </StyledRow>
-        <FeatureRow gutter={24}>
-          <FeatureItem xs={24} sm={8}>
-            <FeatureImg src={images.did_icon_img} className="spacer" alt="download url" />
-            <FeatureTitle>{I18N.get('intro.feature.feature_1.title')}</FeatureTitle>
-            <FeatureDesc>{I18N.get('intro.feature.feature_1.desc')}</FeatureDesc>
-          </FeatureItem>
-          <FeatureItem xs={24} sm={8}>
-            <FeatureImg src={images.multi_icon_img} className="spacer" alt="download url" />
-            <FeatureTitle>{I18N.get('intro.feature.feature_2.title')}</FeatureTitle>
-            <FeatureDesc>{I18N.get('intro.feature.feature_2.desc')}</FeatureDesc>
-          </FeatureItem>
-          <FeatureItem xs={24} sm={8}>
-            <FeatureImg src={images.opensource_icon_img} className="spacer" alt="download url" />
-            <FeatureTitle>{I18N.get('intro.feature.feature_3.title')}</FeatureTitle>
-            <FeatureDesc>{I18N.get('intro.feature.feature_3.desc')}</FeatureDesc>
-          </FeatureItem>
-        </FeatureRow>
-      </ContainerInner></Container>
+      <div>
+        <Container id="intro"><ContainerInner className="container-inner">
+          <StyledRow gutter={24}>
+            <Col xs={24} sm={{ span: 6, offset: 2 }}>
+              <Title>{I18N.get('intro.about.title')}</Title>
+            </Col>
+            <Col xs={24} sm={16}>
+              <Desc>{I18N.get('intro.about.desc')}</Desc>
+            </Col>
+          </StyledRow>
+          <StyledRow gutter={24}>
+            <Col xs={24} sm={{ span: 6, offset: 2 }}>
+              <Title>{I18N.get('intro.social.telegram.title')}</Title>
+            </Col>
+            <Col xs={24} sm={16}>
+              <Desc>{I18N.get('intro.social.telegram.desc')}</Desc>
+              <BtnContainer>
+                <SocialButton href={I18N.get('links.telegram')} shape="round" target="_blank" rel="noopener noreferrer">
+                  <BtnImg src={images.telegram_icon_img} className="spacer" alt="download url" />
+                  <BtnText>{I18N.get('intro.social.telegram.btnText')}</BtnText>
+                </SocialButton>
+              </BtnContainer>
+            </Col>
+          </StyledRow>
+          <FeatureRow gutter={24}>
+            <FeatureItem xs={24} sm={8}>
+              <FeatureImg src={images.did_icon_img} className="spacer" alt="download url" />
+              <FeatureTitle>{I18N.get('intro.feature.feature_1.title')}</FeatureTitle>
+              <FeatureDesc>{I18N.get('intro.feature.feature_1.desc')}</FeatureDesc>
+            </FeatureItem>
+            <FeatureItem xs={24} sm={8}>
+              <FeatureImg src={images.multi_icon_img} className="spacer" alt="download url" />
+              <FeatureTitle>{I18N.get('intro.feature.feature_2.title')}</FeatureTitle>
+              <FeatureDesc>{I18N.get('intro.feature.feature_2.desc')}</FeatureDesc>
+            </FeatureItem>
+            <FeatureItem xs={24} sm={8}>
+              <FeatureImg src={images.opensource_icon_img} className="spacer" alt="download url" />
+              <FeatureTitle>{I18N.get('intro.feature.feature_3.title')}</FeatureTitle>
+              <FeatureDesc>{I18N.get('intro.feature.feature_3.desc')}</FeatureDesc>
+            </FeatureItem>
+          </FeatureRow>
+        </ContainerInner></Container>
+        {/* workaround: put footer here due to build duplicate class with header */}
+        <Footer />
+      </div>
     )
   }
 }
@@ -67,8 +72,13 @@ const Container = styled.div`
 `
 
 const ContainerInner = styled.div`
-  max-width: 960px!important;
-  margin: 40px auto!important;
+  /* max-width: 1200px;
+  margin: 0 auto; */
+  height: 100%;
+  padding-left: 40px;
+  padding-right: 40px;
+  max-width: 960px;
+  margin: 40px auto;
   @media only screen and (max-width: ${breakPoint.mobile}) {
   }
 `

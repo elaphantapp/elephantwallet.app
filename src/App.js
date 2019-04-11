@@ -3,11 +3,11 @@ import React from 'react'
 import { Router } from 'react-static'
 import Routes from 'react-static-routes'
 import Header from './components/header'
-import Footer from './components/footer'
+// import Footer from './components/footer'
 import history from './utils/routerUtils'
 
 import './app.less'
-import './common.less'
+// import './common.less'
 
 // for local
 // import '../fonts/nfh2hmc.css'
@@ -19,7 +19,7 @@ function App () {
       <Router history={history}>
         <Routes />
       </Router>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }
