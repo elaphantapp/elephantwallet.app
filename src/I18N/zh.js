@@ -6,16 +6,16 @@ export default {
     telegram: 'https://t.me/elastoswalletelephant',
   },
   header: {
-    elastos: 'ELASTOS HOMEPAGE',
-    telegram: 'TELEGRAM GROUP',
+    elastos: 'ELASTOS官网',
+    telegram: 'TELEGRAM群',
     github: {
-      title: 'GITHUB REPO',
+      title: 'GITHUB仓库',
       ios: {
-        title: 'IOS',
+        title: 'iOS',
         url: 'https://github.com/elastos/Elastos.App.Wallet.Elephant.iOS',
       },
       android: {
-        title: 'ANDROID',
+        title: 'Android',
         url: 'https://github.com/elastos/Elastos.App.Wallet.Elephant.Android',
       },
     },
