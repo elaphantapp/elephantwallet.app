@@ -10,43 +10,37 @@ import * as colors from '../../constants/color'
 
 // import './style.less'
 
-export default class extends React.Component {
-  state = {
-  }
-  render () {
-    return (
-      <Container><ContainerInner className="container-inner">
-        <Row>
-          <Col xs={24} sm={14}>
-            <SubTitle>{I18N.get('hero.welcome')}</SubTitle>
-            <Title>{I18N.get('hero.title')}</Title>
-            <StyledButton shape="round" href="#footer">
-              <ButtonInner>
-                <StyledIcon src={images.logo_img} alt="icon" />
-                {I18N.get('hero.btnText')}
-              </ButtonInner>
-            </StyledButton>
-            <Help>{I18N.get('hero.help')}</Help>
-          </Col>
-          <Col xs={24} sm={10}>
-            <MediaQuery maxWidth={breakPoint.mobile}>
-              <WalletImg mobile src={images.hero_phone_image_mobile_img} alt="wallet image" />
-            </MediaQuery>
-            <MediaQuery minWidth={breakPoint.mobile}>
-              <WalletImg src={images.hero_phone_image_img} alt="wallet image" />
-            </MediaQuery>
-          </Col>
-        </Row>
-        <BottomRow>
-          <LearnMore href="#intro">
-            <div>{I18N.get('hero.learnMore')}</div>
-            <div><DownArrow src={images.down_arrow_img} alt="down arrow" /></div>
-          </LearnMore>
-        </BottomRow>
-      </ContainerInner></Container>
-    )
-  }
-}
+export default () => (
+  <Container id="hero"><ContainerInner>
+    <StyledRow>
+      <Col xs={24} sm={14}>
+        <SubTitle>{I18N.get('hero.welcome')}</SubTitle>
+        <Title>{I18N.get('hero.title')}</Title>
+        <StyledButton shape="round" href="#footer">
+          <ButtonInner>
+            <StyledIcon src={images.logo_img} alt="icon" />
+            {I18N.get('hero.btnText')}
+          </ButtonInner>
+        </StyledButton>
+        <Help>{I18N.get('hero.help')}</Help>
+      </Col>
+      <Col xs={24} sm={10}>
+        <MediaQuery maxWidth={breakPoint.mobile}>
+          <WalletImg mobile src={images.hero_phone_image_mobile_img} alt="wallet image" />
+        </MediaQuery>
+        <MediaQuery minWidth={breakPoint.mobile}>
+          <WalletImg src={images.hero_phone_image_img} alt="wallet image" />
+        </MediaQuery>
+      </Col>
+    </StyledRow>
+    <BottomRow>
+      <LearnMore href="#intro">
+        <div>{I18N.get('hero.learnMore')}</div>
+        <div><DownArrow src={images.down_arrow_img} alt="down arrow" /></div>
+      </LearnMore>
+    </BottomRow>
+  </ContainerInner></Container>
+)
 
 const Container = styled.div`
   position: relative;
@@ -62,11 +56,16 @@ const Container = styled.div`
     margin-bottom: 200px;
     padding-bottom: 100px;
   }
-  `
+`
 const ContainerInner = styled.div`
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding-left: 40px;
+  padding-right: 40px;
   padding-bottom: 70px;
-  @media only screen and (max-width: ${breakPoint.mobile}) {
-  }
+`
+const StyledRow = styled(Row)`
 `
 const BottomRow = styled(Row)`
   height: 35px;

@@ -1,4 +1,3 @@
-import axios from 'axios'
 import React, { Component } from 'react'
 import { ServerStyleSheet } from 'styled-components'
 /*
@@ -24,13 +23,12 @@ const webpack = require('webpack')
 
 //
 export default {
-  //siteRoot: 'https://www.elastos.org',
-  //stagingSiteRoot: 'https://www-test.elastos.org',
+  // siteRoot: 'https://elephantwallet.app/',
+  // stagingSiteRoot: 'https://www-test.elastos.org',
   getSiteData: () => ({
-    title: 'Elastos',
+    title: 'Elephant Wallet',
   }),
   getRoutes: async () => {
-    //const { data: posts } = await axios.get('https://jsonplaceholder.typicode.com/posts')
     return [
       {
         path: '/',
@@ -50,7 +48,7 @@ export default {
       }
     ]
   },
-  plugins: ["react-static-plugin-styled-components"],
+  plugins: ['react-static-plugin-styled-components'],
   renderToHtml: (render, Comp, meta) => {
     const sheet = new ServerStyleSheet()
     const html = render(sheet.collectStyles(<Comp />))

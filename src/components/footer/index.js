@@ -5,18 +5,14 @@ import Wallet from './wallet'
 import images from '../../constants/images'
 
 export default class extends React.Component {
-  state = {
-    text: '',
-  }
-
   render () {
     return (
-      <Container id="footer"><ContainerInner className="container-inner">
+      <Container id="footer"><Inner id="footer-inner">
         <LogoContainer>
           <Logo src={images.elephant_circle_logo_img} className="footer-logo" alt="logo" />
         </LogoContainer>
         <Wallet />
-      </ContainerInner></Container>
+      </Inner></Container>
     )
   }
 }
@@ -27,11 +23,13 @@ const Container = styled.div`
   background-image: url(${images.bottom_background_img});
   background-size: cover;
   color: white;
-  /* @media only screen and (max-width: 768px) { */
-    /* background-image: url("../../../images/mobile/bottom_background.png"); */
-    /* } */
 `
-const ContainerInner = styled.div`
+const Inner = styled.div`
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding-left: 40px;
+  padding-right: 40px;
   padding-top: 60px;
   padding-bottom: 40px;
 `
