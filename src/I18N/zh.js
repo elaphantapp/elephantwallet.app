@@ -71,7 +71,7 @@ export default {
     store: {
       title: '从 App Store 和 Google Play Store 下载',
       ios: {
-        help: '需要海外Apple ID，请点击下面链接查看注册海外Apple ID的帮助。',
+        help: '中国大陆Apple ID无法下载，请申请海外Apple ID。',
         btnText: '注册海外Apple ID向导',
         helpLink: 'https://www.elastos.org/downloads/apple-id-tutorial.pdf',
         storeLink: 'https://itunes.apple.com/app/elastos-elephant-wallet/id1446241279',
