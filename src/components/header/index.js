@@ -99,7 +99,7 @@ export default class App extends React.Component {
           <MenuLink href={I18N.get('links.telegram')} target="_blank" rel="noopener noreferrer">{I18N.get('header.telegram')}</MenuLink>
         </Menu.Item>
         <Menu.Item>
-          <span style={{ color: colors.text.theme }}>Github:</span>
+          <span style={{ color: colors.text.theme, fontWeight: 'bold' }}>Github:</span>
         </Menu.Item>
         <Menu.Item>
           <MenuLink href={I18N.get('header.github.android.url')} target="_blank" rel="noopener noreferrer">{I18N.get('header.github.android.title')}</MenuLink>

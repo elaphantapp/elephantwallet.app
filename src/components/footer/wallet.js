@@ -52,7 +52,7 @@ export default class extends React.Component {
 
 const Container = styled.div`
   max-width: 450px;
-  margin: auto;
+  margin: 30px auto;
 `
 const Title = styled.h2`
   font-size: 32px;

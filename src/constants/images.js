@@ -31,6 +31,11 @@ import elephant_logo_img from '../../images/elephant_logo.png'
 import opensource_icon_img from '../../images/opensource_icon.png'
 import wallet_ios_img from '../../images/wallet_ios.png'
 import logo_img from '../../images/logo.png'
+import about_white_box_img from '../../images/about_white_box.png'
+import did_white_box_img from '../../images/did_white_box.png'
+import multi_white_box_img from '../../images/multi_white_box.png'
+import open_white_box_img from '../../images/open_white_box.png'
+import telegram_white_box_img from '../../images/telegram_white_box.png'
 
 // mobile
 import android_apk_button_mobile_img from '../../images/mobile/android_apk_button.png'
@@ -84,6 +89,11 @@ export default {
   opensource_icon_img,
   wallet_ios_img,
   logo_img,
+  about_white_box_img,
+  did_white_box_img,
+  multi_white_box_img,
+  open_white_box_img,
+  telegram_white_box_img,
 
   // mobile
   android_apk_button_mobile_img,

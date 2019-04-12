@@ -53,7 +53,7 @@ const Container = styled.div`
   color: white;
   @media only screen and (max-width: ${breakPoint.mobile}) {
     background: url(${images.top_background_mobile_img}) no-repeat;
-    margin-bottom: 200px;
+    margin-bottom: 230px;
     padding-bottom: 100px;
   }
 `

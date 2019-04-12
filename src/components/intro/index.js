@@ -78,12 +78,17 @@ const ContainerInner = styled.div`
   padding-right: 40px;
   max-width: 960px;
   margin: 40px auto;
-  @media only screen and (max-width: ${breakPoint.mobile}) {
-  }
-`
+  `
 const StyledRow = styled(Row)`
   text-align: left;
   margin-bottom: 30px;
+  /* @media only screen and (min-width: ${breakPoint.mobile}) {
+    background: url(${images.about_white_box_img}) no-repeat;
+  } */
+  /* did_white_box_img
+  multi_white_box_img
+  open_white_box_img
+  telegram_white_box_img}) */
 `
 const Title = styled.h2`
   color: ${colors.text.theme};
