@@ -17,7 +17,7 @@ const fs = require('fs')
 
 const lessToJs = require('less-vars-to-js')
 
-const themeVariables = lessToJs(fs.readFileSync(path.join(__dirname, 'src/theme-ant-overwrite.less'), 'utf8'))
+const themeVariables = lessToJs(fs.readFileSync(path.join(__dirname, 'src/style/theme-ant-overwrite.less'), 'utf8'))
 
 const webpack = require('webpack')
 

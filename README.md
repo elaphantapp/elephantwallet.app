@@ -8,7 +8,7 @@ Use react-static as the static site generating tool, ant design as the UI framew
 This example is enabled with TypeScript (though you can use JavaScript, losing
 component typing) handling less files automatically.
 
-To overwrite ant design theme variables, use `src/theme-ant-overwrite.less`.
+To overwrite ant design theme variables, use `src/style/theme-ant-overwrite.less`.
 The less loader takes those in to modify the original source.
 
 This repo includes:

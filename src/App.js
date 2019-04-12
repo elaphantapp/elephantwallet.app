@@ -6,7 +6,7 @@ import Header from './components/header'
 // import Footer from './components/footer'
 import history from './utils/routerUtils'
 
-import './app.less'
+import './style/app.less'
 // import './common.less'
 
 // for local
