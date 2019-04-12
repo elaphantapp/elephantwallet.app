@@ -5,7 +5,6 @@ import I18N from '../../I18N'
 import { breakPoint } from '../../constants/variable'
 import images from '../../constants/images'
 import * as colors from '../../constants/color'
-import '../../common.less'
 import Footer from '../footer'
 
 export default class extends React.Component {
@@ -14,7 +13,7 @@ export default class extends React.Component {
   render () {
     return (
       <div>
-        <Container id="intro"><ContainerInner className="container-inner">
+        <Container id="intro"><ContainerInner>
           <StyledRow gutter={24}>
             <Col xs={24} sm={{ span: 6, offset: 2 }}>
               <Title>{I18N.get('intro.about.title')}</Title>
