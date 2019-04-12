@@ -11,11 +11,11 @@ export default {
     github: {
       title: 'GITHUB REPO',
       ios: {
-        title: 'IOS',
+        title: 'iOS',
         url: 'https://github.com/elastos/Elastos.App.Wallet.Elephant.iOS',
       },
       android: {
-        title: 'ANDROID',
+        title: 'Android',
         url: 'https://github.com/elastos/Elastos.App.Wallet.Elephant.Android',
       },
     },
@@ -67,7 +67,7 @@ export default {
 
   // footer section
   footer: {
-    title: 'DOWNLOAD THE APP TODAY',
+    title: 'DOWNLOAD THE APP NOW',
     store: {
       title: 'Download on the App Store and Google Play Store',
       ios: {
