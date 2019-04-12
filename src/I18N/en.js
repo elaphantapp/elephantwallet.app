@@ -89,11 +89,11 @@ export default {
       title: 'You can also use the QR codes below:',
       ios: {
         title: 'iOS Version',
-        url: images.wallet_android_img,
+        url: images.wallet_ios_img,
       },
       android: {
         title: 'Android Version',
-        url: images.wallet_ios_img,
+        url: images.wallet_android_img,
       },
     },
   },

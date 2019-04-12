@@ -89,11 +89,11 @@ export default {
       title: '你也可以直接扫码下载:',
       ios: {
         title: 'iOS版',
-        url: images.wallet_android_img,
+        url: images.wallet_ios_img,
       },
       android: {
         title: 'Android版',
-        url: images.wallet_ios_img,
+        url: images.wallet_android_img,
       },
     },
   },
