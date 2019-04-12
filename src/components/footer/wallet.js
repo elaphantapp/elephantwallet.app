@@ -17,7 +17,7 @@ export default class extends React.Component {
               <StoreImg src={I18N.get('footer.store.ios.storeImg')} className="spacer" alt="download url" />
             </a>
             <Help>{I18N.get('footer.store.ios.help')}</Help>
-            <StyledButton shape="round" href={I18N.get('footer.store.ios.helpLink')} target="_blank">
+            <StyledButton shape="round" href={I18N.get('footer.store.ios.helpLink')} target="_blank" rel="noopener noreferrer">
               <StyledIcon type="apple" theme="filled" />
               {I18N.get('footer.store.ios.btnText')}
             </StyledButton>
