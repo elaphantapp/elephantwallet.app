@@ -22,7 +22,7 @@ export default () => (
             {I18N.get('hero.btnText')}
           </ButtonInner>
         </StyledButton>
-        <Help>{I18N.get('hero.help')}</Help>
+        <Help href={I18N.get('footer.store.ios.helpLink')} target="_blank" rel="noopener noreferrer">{I18N.get('hero.help')}</Help>
       </Col>
       <Col xs={24} sm={10}>
         <MediaQuery maxWidth={breakPoint.mobile}>
@@ -36,7 +36,7 @@ export default () => (
     <BottomRow>
       <LearnMore href="#intro">
         <div>{I18N.get('hero.learnMore')}</div>
-        <div><DownArrow src={images.down_arrow_img} alt="down arrow" /></div>
+        <Circle><DownArrow src={images.down_arrow_img} alt="down arrow" /></Circle>
       </LearnMore>
     </BottomRow>
   </ContainerInner></Container>
@@ -68,8 +68,9 @@ const ContainerInner = styled.div`
 const StyledRow = styled(Row)`
 `
 const BottomRow = styled(Row)`
-  height: 35px;
-  position: initial;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -30%);
 `
 const SubTitle = styled.div`
   font-size: 13px;
@@ -107,10 +108,15 @@ const StyledIcon = styled.img`
   margin-right: 15px;
 `
 
-const Help = styled.div`
+const Help = styled.a`
   margin-top: 25px;
   font-weight: lighter;
   font-size: 13px;
+  color: white;
+  display: block;
+  :hover {
+    color: white;
+  }
 `
 const WalletImg = styled.img`
   @media only screen and (max-width: ${breakPoint.mobile}) {
@@ -118,19 +124,27 @@ const WalletImg = styled.img`
     top: 40px;
   }
 `
+const Circle = styled.div`
+  background: #FD8129;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
 const DownArrow = styled.img`
   height: 20px;
 `
 const LearnMore = styled.a`
   text-align: center;
   font-size: 12px;
-  position: absolute;
   font-size: 12px;
-  right: 26%;
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   :hover {
     color: inherit;
   }
