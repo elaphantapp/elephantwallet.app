@@ -39,12 +39,12 @@ export default {
   intro: {
     about: {
       title: '关于我们的App',
-      desc: '您的个人数字财产管家。 您可以管理您的比特币，以太坊，ELA和许多其它数字火币；以及基于区块链数字身份的Elastos DID，可让您掌握自己的数据。',
+      desc: '您的个人数字财产管家。 您可以管理您的比特币，以太坊，ELA和许多其它数字货币；以及基于区块链数字身份的Elastos DID，可让您掌握自己的数据。',
     },
     social: {
       telegram: {
         title: '加入Telegram',
-        desc: '在我们的电报群中讨论功能并找到问题的答案。 欢迎大家加入讨论。',
+        desc: '在我们的电报群中讨论功能并找到问题的答案。欢迎大家加入讨论。',
         btnText: 'Telegram',
         link: 'https://t.me/elastoswalletelephant',
       },
@@ -52,11 +52,11 @@ export default {
     feature: {
       feature_1: {
         title: 'Elastos DID',
-        desc: '支持Elastos DID，您不仅可以拥有您的数字货币，同时对您在互联网上的身份拥有自主权，让您可以对自己的数据确权。',
+        desc: '支持Elastos DID，您不仅拥有您的数字货币，而且拥有您在互联网上身份的自主权，这让您能够对自己的数据进行确权。',
       },
       feature_2: {
         title: '多币种钱包',
-        desc: '支持 BTC, ELA, ERC20 和其它加密数字币. 不需要账户和登录, 只需要保存好12个助记词就可以掌握您的财产, 没有中心服务器, 没有人收集您的信息。',
+        desc: '支持 BTC, ELA, ERC20 和其它加密数字货币. 不需要账户和登录, 只需要保存好12个助记词就可以掌握您的财产, 没有中心服务器, 没有人收集您的信息。',
       },
       feature_3: {
         title: '开源项目',
@@ -78,7 +78,7 @@ export default {
         storeImg: images.appstore_button_img,
       },
       android: {
-        help: '直接下载APK.',
+        help: '直接下载APK',
         btnText: 'Android apk',
         helpLink: 'https://download.elastos.org/app/elephantwallet/elephant_wallet.apk',
         storeLink: 'https://play.google.com/store/apps/details?id=com.elastos.wallet',
