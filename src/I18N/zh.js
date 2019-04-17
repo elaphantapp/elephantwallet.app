@@ -39,12 +39,12 @@ export default {
   intro: {
     about: {
       title: '关于我们的App',
-      desc: '您的个人数字财产管家。 您可以管理您的比特币，以太坊，ELA和许多其它数字火币; 以及基于区块链数字身份的Elastos DID，可让您掌握自己的数据。',
+      desc: '您的个人数字财产管家。 您可以管理您的比特币，以太坊，ELA和许多其它数字火币；以及基于区块链数字身份的Elastos DID，可让您掌握自己的数据。',
     },
     social: {
       telegram: {
-        title: '加入 Telegram',
-        desc: '在我们的电报小组中讨论功能并找到问题的答案。 欢迎大家加入讨论。',
+        title: '加入Telegram',
+        desc: '在我们的电报群中讨论功能并找到问题的答案。 欢迎大家加入讨论。',
         btnText: 'Telegram',
         link: 'https://t.me/elastoswalletelephant',
       },
