@@ -80,7 +80,7 @@ export default {
       android: {
         help: '直接下载APK',
         btnText: 'Android apk',
-        helpLink: 'https://download.elastos.org/app/elephantwallet/elephant_wallet.apk',
+        helpLink: 'https://download.elastos.org/app/elephantwallet/index.html',
         storeLink: 'https://play.google.com/store/apps/details?id=com.elastos.wallet',
         storeImg: images.googleplay_button_img,
       },
