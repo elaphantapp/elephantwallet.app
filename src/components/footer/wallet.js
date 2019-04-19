@@ -88,7 +88,7 @@ const StyledButton = styled(Button)`
 `
 const StyledIcon = styled(Icon)`
 `
-const List = styled.ul`
+const List = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
@@ -97,7 +97,7 @@ const List = styled.ul`
     flex-direction: column;
   }
 `
-const ListItem = styled.li`
+const ListItem = styled.div`
   flex: 200px 0 0;
   margin-bottom: 20px;
 `
