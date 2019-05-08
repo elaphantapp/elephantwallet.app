@@ -20,18 +20,20 @@ const universalOptions = {
 }
 
   const t_0 = universal(import('../src/pages/home'), universalOptions)
-const t_1 = universal(import('../src/pages/404'), universalOptions)
+const t_1 = universal(import('../src/pages/privacyPolicy'), universalOptions)
+const t_2 = universal(import('../src/pages/404'), universalOptions)
 
 
 // Template Map
 global.componentsByTemplateID = global.componentsByTemplateID || [
   t_0,
-t_1
+t_1,
+t_2
 ]
 
 // Template Tree
 global.templateIDsByPath = global.templateIDsByPath || {
-  '404': 1
+  '404': 2
 }
 
 // Get template for given path
