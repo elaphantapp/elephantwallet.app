@@ -34,6 +34,7 @@ export default class App extends React.Component {
           <NavBar>
             <a href={I18N.get('links.elastos')} target="_blank" rel="noopener noreferrer">{I18N.get('header.elastos')}</a>
             <a href={I18N.get('links.telegram')} target="_blank" rel="noopener noreferrer">{I18N.get('header.telegram')}</a>
+            <a href={I18N.get('links.privacyPolicy')} rel="noopener noreferrer">{I18N.get('header.privacyPolicy')}</a>
             <Dropdown overlay={this.getGithubMenu()}>
               <a href="#">{I18N.get('header.github.title')}
                 <DropdownIcon src={dropdown} alt="dropdown" />
@@ -97,6 +98,9 @@ export default class App extends React.Component {
         </Menu.Item>
         <Menu.Item>
           <MenuLink href={I18N.get('links.telegram')} target="_blank" rel="noopener noreferrer">{I18N.get('header.telegram')}</MenuLink>
+        </Menu.Item>
+        <Menu.Item>
+          <MenuLink href={I18N.get('links.privacyPolicy')} rel="noopener noreferrer">{I18N.get('header.privacyPolicy')}</MenuLink>
         </Menu.Item>
         <Menu.Item>
           <span style={{ color: colors.text.theme, fontWeight: 'bold' }}>Github</span>

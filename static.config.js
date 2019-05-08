@@ -43,6 +43,10 @@ export default {
         component: 'src/pages/home',
       },
       {
+        path: '/privacy-policy',
+        component: 'src/pages/privacyPolicy',
+      },
+      {
         is404: true,
         component: 'src/pages/404',
       }

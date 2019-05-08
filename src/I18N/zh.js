@@ -4,10 +4,12 @@ export default {
   links: {
     elastos: 'https://elastos.org',
     telegram: 'https://t.me/elastoswalletelephant',
+    privacyPolicy: '/privacy-policy',
   },
   header: {
     elastos: 'ELASTOS官网',
     telegram: 'TELEGRAM群',
+    privacyPolicy: '隐私政策',
     github: {
       title: 'GITHUB仓库',
       ios: {
