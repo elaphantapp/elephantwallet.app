@@ -4,12 +4,14 @@ export default {
   links: {
     elastos: 'https://elastos.org',
     telegram: 'https://t.me/elastoswalletelephant',
-    privacyPolicy: '/privacy-policy',
   },
   header: {
     elastos: 'ELASTOS HOMEPAGE',
     telegram: 'TELEGRAM GROUP',
-    privacyPolicy: 'Privacy Policy',
+    developer: {
+      title: 'DEVELOPER',
+      link: 'https://github.com/elastos/Elastos.Developer.Doc/blob/master/EN/6.%20Advanced%20Guides/11.%20ElephantWallet.md',
+    },
     github: {
       title: 'GITHUB REPO',
       ios: {
@@ -97,6 +99,10 @@ export default {
         title: 'Android Version',
         url: images.wallet_android_img,
       },
+    },
+    privacyPolicy: {
+      title: 'Privacy Policy',
+      link: '/privacy-policy',
     },
   },
 }

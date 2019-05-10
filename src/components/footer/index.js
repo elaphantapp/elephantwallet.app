@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 // import I18N from '../../I18N'
 import Wallet from './wallet'
+import BottomSection from './bottom'
 import { breakPoint } from '../../constants/variable'
 import images from '../../constants/images'
 
@@ -13,6 +14,7 @@ export default class extends React.Component {
           <Logo src={images.elephant_circle_logo_img} className="footer-logo" alt="logo" />
         </LogoContainer>
         <Wallet />
+        <BottomSection />
       </Inner></Container>
     )
   }
