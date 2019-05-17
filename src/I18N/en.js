@@ -4,10 +4,13 @@ export default {
   links: {
     elastos: 'https://elastos.org',
     telegram: 'https://t.me/elastoswalletelephant',
+    privacyPolicy: '/privacy-policy',
+    roadmap: 'https://trello.com/b/goEpaLLf/elephant-wallet',
   },
   header: {
     elastos: 'ELASTOS HOMEPAGE',
     telegram: 'TELEGRAM GROUP',
+    roadmap: 'Roadmap',
     developer: {
       title: 'DEVELOPER',
       link: 'https://github.com/elastos/Elastos.Developer.Doc/blob/master/EN/6.%20Advanced%20Guides/11.%20ElephantWallet.md',

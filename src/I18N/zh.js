@@ -5,10 +5,12 @@ export default {
     elastos: 'https://elastos.org',
     telegram: 'https://t.me/elastoswalletelephant',
     privacyPolicy: '/privacy-policy',
+    roadmap: 'https://trello.com/b/goEpaLLf/elephant-wallet',
   },
   header: {
     elastos: 'ELASTOS官网',
     telegram: 'TELEGRAM群',
+    roadmap: '路线图',
     developer: {
       title: '开发者',
       link: 'https://github.com/elastos/Elastos.Developer.Doc/blob/master/CN/4.%E9%92%B1%E5%8C%85%E5%AF%B9%E6%8E%A5/4.Elephant%E9%92%B1%E5%8C%85%E5%AF%B9%E6%8E%A5%E5%8D%8F%E8%AE%AE.md',
