@@ -1,0 +1,71 @@
+.mui-plus.mui-android header.mui-bar{
+	display: none;
+}
+.mui-plus.mui-android .mui-bar-nav~.mui-content{
+	padding: 0;
+}
+.mui-card{background:#fff; margin-top:15px; margin-bottom:15px; overflow:visible;}
+.mui-input-row label{width:auto;font-size:.875rem;position:absolute;top:0;left:0;bottom:0;}
+.mui-input-row label~input{padding-left:5rem;display:block;width:100%;text-align: right;padding-right:38px;box-sizing:border-box;}
+.mui-input-row .mui-input-clear~.mui-icon-clear{top:0;}
+.mui-input-row .mui-input-clear~.mui-icon-clear:before {position:absolute;top:50%;left:50%;margin-left:-10px;margin-top:-10px;}
+.mui-input-row label~i{position:absolute;top:0;right:0;padding: 11px 15px;font-style:normal;width:60px;text-align:left;}
+.mui-input-row textarea{margin-bottom:0;font-size:1rem;}
+.mui-card2 .mui-input-row label~input {padding-right:75px;}
+.mui-card2 .mui-input-row .mui-input-clear~.mui-icon-clear {right:38px;}
+.your_addr .mui-input-row label~input {width:100%;font-size:.75rem;}
+
+.mui-card .creat_tips{text-align:left; font-size:1.2em; line-height:3em;color:#333;}
+.mui-card .creat_tips h2{font-size:1.2rem;color:#dc1920;text-align: center;padding-bottom:10px;}
+.mui-card .creat_tips p {font-size:.875rem;line-height:1.6;color:#666;}
+.mui-card .creat_address{text-align:center; color:#666; }
+.mui-card .creat_address { display:block;font-size:.9rem; line-height:1.6;border:1px solid #ddd;background:#fff;padding:10px 0;margin:10px 0;}
+.mui-card .creat_address .addr {display:block;color:#4f77d9; }
+.mui-card .creat_address .copy {display:block;color:#666;}
+.mui-card .creat_alert{text-align:left;  font-size:.78rem;font-weight:bold;color:#333;padding-bottom: 1rem;}
+.charge_tips {font-size:.875rem;line-height:1.6;}
+.charge_tips span {color:#dc1920;font-size:1rem;padding:0 5px;}
+.account_tips {padding-bottom:10px;}
+
+.register_tips {color:#333;padding:0 30px;}
+.register_tips p {margin:0;}
+.register_tips p a {text-indent: 2rem;padding:0 2px;font-weight: bold;}
+.register_tips p b {text-indent: 2rem;padding:0 2px;color:#dc1920}
+#id_is_wechat_tips {padding-top: 0.8rem;}
+/*列表*/
+.info_h1{width:100%;position:absolute; top:3em; text-align:center;}
+.info_h1 h1{ font-size:30px; line-height:2.2em; color:#fdf453;}
+.info_h1 h2{ font-size:20px; font-weight:normal; color:#fdf453;}
+.mui-table-view-cell { padding-left:10px; padding-right:10px; padding-top:5px; padding-bottom:5px;}
+.mui-table-view-cell:after{left:0;}
+.mui-ellipsis{font-size:1.1em; color:#161616;font-family: monospace;}
+.mui-h6{color:#a6a6a6;}
+.mui-h6 span{color:#a6a6a6;}
+
+.yilingqu{text-align:center;}
+.yilingqu h1{line-height:2em; color:#e71930;}
+.yilingqu p{color:#070707}
+
+
+/*toast信息提示*/
+.toast-stay {bottom: 50% !important;opacity:2;}
+/* .mui-toast-container {bottom: 50% !important;opacity:2;} */
+.mui-toast-message {background: /* url(/app/themes/default/images/toast.png) */ no-repeat center 10px #000; opacity: 0.6; color: #fff; width: 180px; padding:30px 5px 30px 5px;}
+
+@media screen and (min-width:700px){
+	.mui-content{width:700px; margin:0 auto;}
+	.info_h1{width:100%;position:absolute; top:3em; text-align:center;}
+	.info_h1 h1{ font-size:50px; line-height:3.5em; color:#fdf453;}
+	.info_h1 h2{ font-size:35px; font-weight:normal; color:#fdf453;}
+}
+@media screen and (min-width:850px){
+	.mui-content{width:850px; margin:0 auto;}
+	.info_h1{width:100%;position:absolute; top:7em; text-align:center;}
+	.info_h1 h1{ font-size:50px; line-height:3em; color:#fdf453;}
+	.info_h1 h2{ font-size:35px; font-weight:normal; color:#fdf453;}
+}
+
+
+
+
+

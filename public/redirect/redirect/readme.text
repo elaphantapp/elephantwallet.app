@@ -1,0 +1,7 @@
+https://dev.elabank.net/ElephantH5html/browserget.html?appName=wallet&appTitle=wallet&redirectURL=elaphant%3A%2F%2Fidentity%3FReturnUrl%3Dhttps%253A%252F%252Felaphantapp.github.io%252Fdposvote%252F%2523%252Freturn_url%26AppID%3D23091883A390CCBFFFED4928F996936AFCEBB1B57192532D15271158F3A277FD1BB3309DA2719334CBE1DE7BA2408047E2786A94F370CE66C208159B3A8D1162%26PublicKey%3D03128A35842DD061BD016B9B2913BE07028063E5A80365D713DB77508406E85815%26DID%3DiZW9ozTSXk4ukRXx7vCTTFYebZHFwMUtz7%26RandomNumber%3D998877%26AppName%3Ddopsvote.h5.app%26RequestInfo%3Delaaddress&description=walletwalletwalletwalletwalletwalletwalletwalletwalletwallet
+  参数含义如下： appName 应用名字，
+              appTitle 应用title，
+              redirectURL 大象钱包的协议，
+              description 应用的内容描述
+               
+

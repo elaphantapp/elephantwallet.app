@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>红包</title>
+    <!--标准mui.css-->
+    <link rel="stylesheet" href="./redirect/css/mui.min.css">
+    <!--App自定义的css-->
+    <link rel="stylesheet" type="text/css" href="./redirect/css/app.css" />
+    <script type="application/javascript" src="./redirect/js/baidu_statistic.js"></script>
+    <script type="application/javascript" src="./redirect/js/qrcode.min.js"></script>
+    <script type="application/javascript" src="./redirect/js/language.js?version=1"></script>
+</head>
+<style type="text/css">
+    button {
+        height: 40px;
+        border-radius: 20px !important;
+        width: 90%;
+        margin-left: 5%;
+        font-weight: bold;
+    }
+    
+    #buttonLaunch {
+        background: linear-gradient(to right, #EA3546, #EE7D3D);
+    }
+    
+    .mui-icon:before {
+        color: black;
+    }
+    
+    #pc-display {
+        overflow: hidden;
+        position: fixed;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, rgba(54, 21, 62, 0.16) 0%, rgba(27, 20, 57, 0.2) 100%), url("./redirect/img/pc-bg.png") no-repeat;
+        background-size: cover;
+    }
+    
+    #pc-display .logo img {
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        left: 45px;
+        top: 50px;
+        background: linear-gradient(315deg, #FF3365 30.39%, #FF5A4F 100%);
+        border-radius: 18px;
+    }
+    
+    #pc-display .shuoming-0 {
+        position: absolute;
+        width: 52px;
+        height: 19px;
+        left: 70px;
+        bottom: 50px;
+        font-family: PingFang SC;
+        font-size: 13px;
+        line-height: 18px;
+        color: #FFFFFF;
+    }
+    
+    #pc-display .shuoming-1 {
+        position: absolute;
+        width: 1px;
+        height: 16px;
+        left: 142px;
+        bottom: 50px;
+        background: rgba(255, 255, 255, 0.5);
+    }
+    
+    #pc-display .shuoming-2 {
+        position: absolute;
+        width: 44px;
+        height: 16px;
+        left: 163px;
+        bottom: 52px;
+        font-family: Bio Sans;
+        font-size: 13px;
+        line-height: 16px;
+        /* identical to box height */
+        color: #FFFFFF;
+    }
+    
+    .parent {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .parent .item {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+
+<body>
+    <!-- pc  -->
+    <div class="mui-content" id="pc-display" style="display: none">
+        <div class="logo">
+            <img src="./redirect/img/pc-logo.png">
+        </div>
+        <div class="shuoming-0">
+            简体中文
+        </div>
+        <div class="shuoming-1">
+
+        </div>
+        <div class="shuoming-2">
+            English
+        </div>
+
+        <div class="parent">
+            <div class="item">
+                <div style="text-align: center;background-color: #ffffff;padding:40px 40px 20px 40px;">
+                    <div id="qrcode" style="margin:0 auto;width: 300px"></div>
+                    <p style="font-family:Bio Sans;font-size: 18px;color:#333333;margin-top: 20px" id="pc-1"></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- wechat display -->
+    <div class="mui-content" id="wechat-display" style="background-color: transparent;display: none">
+        <div style="position: absolute; right: 3%; top:60px;">
+            <img src="./redirect/img/arrowup.png" alt="">
+        </div>
+        <div class="mui-text-center" style="width: 60px;height: 60px;margin: 50px auto 10px; ">
+            <img src="./redirect/img/elephant_icon.png" style="width: 100%;height: 100%;border-radius: 10px;">
+        </div>
+        <p class="mui-text-center" id="wechat-1"></p>
+        <div class="mui-content-padded" style="color: black;">
+            <br>
+            <br>
+            <br>
+            <p style="color: black;" id="wechat-2">
+                <a class="mui-icon mui-icon-more"></a>
+            </p>
+            <p style="color: black;">
+                <span id="wechat-3"></span>
+                <span style="color: #CF2D28;" id="wechat-4"></span>
+                <span id="wechat-5"></span>
+            </p>
+        </div>
+    </div>
+
+    <!-- none wechat display -->
+    <div class="mui-content" id="none-wechat-display" style="background-color: transparent;display: none">
+        <div class="mui-text-center" style="width: 70px;height: 70px;margin: 80px auto 10px;">
+            <img src="./redirect/img/elephant_icon.png" style="width: 100%;height: 100%; border-radius: 12px;">
+        </div>
+        <p class="mui-text-center" style="color: black;" id="none-wechat-display-1"></p>
+        <p class="mui-text-center" style="color: black;display:none;word-wrap:break-word;padding: 0px 10px" id="description"></p>
+        <div class="mui-content-padded" style="color: black;" id="load">
+            <div style="margin-top: 135px;">
+                <button id="buttonLaunch" type="button" onclick="launchElaphant()" class="mui-btn mui-btn-danger"></button>
+            </div>
+            <div style="margin-top: 15px;" id="downloadExample" hidden="true">
+                <button type="button" class="mui-btn mui-btn-danger mui-btn-outlined" onclick="window.location.href='${elephant_andriod_googleplay_download}'" id="none-wechat-display-7"></button>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="./redirect/js/mui.min.js"></script>
+<script src="./redirect/js/clipboard.min.js"></script>
+<script src="./redirect/js/jquery.js"></script>
+<script>
+    function initPCchatTranslate() {
+        $("title").text(appTitle);
+        $("#pc-1").text(get_lan("pc-1"));
+    }
+
+
+    function initWechatTranslate() {
+        $("title").text(appTitle);
+        $("#wechat-1").text(get_lan("jump_elephant_wallet"));
+        $("#wechat-2").text(get_lan("jump_elephant_first_instruction"));
+        $("#wechat-3").text(get_lan("jump_elephant_second_instruction_1"));
+        $("#wechat-4").text(get_lan("jump_elephant_second_instruction_2"));
+        $("#wechat-5").text(get_lan("jump_elephant_second_instruction_3"));
+    }
+
+
+    function initNoneWechatTranslate() {
+        $("title").text(appTitle);
+        $("#none-wechat-display-1").text(get_lan("jump_elephant_wallet"));
+        $("#none-wechat-display-2").text(get_lan("jump_elephant_third_instruction"));
+        $("#none-wechat-display-3").text(get_lan("jump_elephant_four_instruction"));
+        $("#none-wechat-display-4").text(get_lan("jump_elephant_third_instruction_1"));
+        $("#none-wechat-display-5").text(get_lan("jump_elephant_four_instruction_1"));
+        $("#buttonLaunch").text(get_lan("luanchElephant"));
+        $("#none-wechat-display-7").text(get_lan("Download"));
+        if (description != "") {
+            document.getElementById("description").style.display = "block";
+            $("#description").text(description);
+        } else {
+            document.getElementById("description").style.display = "none";
+        }
+    }
+
+
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null)
+            return unescape(r[2]);
+        return null;
+    }
+
+
+    function getUrlParam(name) {
+        //正则表达式过滤
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        //正则规则
+        var r = window.location.search.substr(1).match(reg);
+
+        if (r != null) return decodeURI(r[2]);
+        return null;
+
+    }
+
+    function isWechat() {
+        var ua = navigator.userAgent.toLowerCase();
+        return /micromessenger/i.test(ua) || typeof navigator.wxuserAgent !== 'undefined';
+    }
+
+    function launchElaphant() {
+        window.location.href = redirectURL;
+    }
+
+    function isIOSDevice() {
+        var u = navigator.userAgent;
+        var ios = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        return ios;
+    }
+
+    function isPC() {
+        var userAgentInfo = navigator.userAgent;
+        var Agents = ["Android", "iPhone",
+            "SymbianOS", "Windows Phone",
+            "iPad", "iPod"
+        ];
+        var flag = true;
+        for (var v = 0; v < Agents.length; v++) {
+            if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                flag = false;
+                break;
+            }
+        }
+        return flag;
+    }
+    encodeURI
+    var appName = getUrlParam("appName") || "";
+    var appTitle = getUrlParam("appTitle") || "";
+    var description = getUrlParam("description") || "";
+    var redirectURL = GetQueryString("redirectURL") || "https://elephantwallet.app#download";
+
+    var qrcode = new QRCode('qrcode', {
+        text: redirectURL,
+        width: 300,
+        height: 300,
+        colorDark: '#000000',
+        colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.L
+    });
+
+
+    function init() {
+        if (isPC()) {
+            document.getElementById("pc-display").style.display = "block";
+            document.getElementById("wechat-display").style.display = "none";
+            document.getElementById("none-wechat-display").style.display = "none";
+            initPCchatTranslate();
+        } else if (isWechat()) {
+            document.getElementById("pc-display").style.display = "none";
+            document.getElementById("wechat-display").style.display = "block";
+            initWechatTranslate();
+        } else {
+            document.getElementById("pc-display").style.display = "none";
+            document.getElementById("none-wechat-display").style.display = "block";
+            initNoneWechatTranslate();
+            launchElaphant();
+            var divload = document.getElementById("load");
+            if (isIOSDevice()) {
+                var div = document.createElement("div");
+                div.style = "margin-top: 15px;"
+                var btn = document.createElement("button");
+                btn.type = "button";
+                btn.setAttribute("class", "mui-btn mui-btn-danger mui-btn-outlined")
+                btn.setAttribute("onclick", "window.location.href='https://elephantwallet.app#download'");
+                btn.innerText = get_lan("elephant_ios_appstore_download");
+                div.appendChild(btn);
+                divload.appendChild(div);
+
+            } else {
+                var divload = document.getElementById("load");
+                var div = document.createElement("div");
+                div.style = "margin-top: 15px;"
+                var btn = document.createElement("button");
+                btn.type = "button";
+                btn.setAttribute("class", "mui-btn mui-btn-danger mui-btn-outlined");
+                btn.setAttribute("onclick", "window.location.href='https://elephantwallet.app#download'");
+                btn.innerText = get_lan("elephant_andriod_googleplay_download");
+                div.appendChild(btn);
+                divload.appendChild(div);
+            }
+        }
+    }
+    init();
+</script>
+
+</html>
