@@ -1,0 +1,31 @@
+{
+  "arbiter_public_key": "03d55285f06683c9e5c6b5892a688affd046940c7161571611ea3a98330f72459f",
+  "org": {
+    "candidate_name": "Elephant Wallet",
+    "website": "https://elephantwallet.app",
+    "code_of_conduct":"",
+    "ownership_disclosure":"",
+    "email":"",
+    "branding":{
+      "logo_256":"https://elephantwallet.app/elaphant_logo_256.png",
+      "logo_1024":"https://elephantwallet.app/elaphant_logo_512.png",
+      "logo_svg":"https://elephantwallet.app/elaphant_logo_512.png"
+    },
+    "location": {
+      "name": "elaphant",
+      "country": "Singapore",
+      "latitude": 0,
+      "longitude": 0
+    },
+    "social": {
+      "twitter": "",
+      "youtube": "",
+      "facebook": "",
+      "github":"",
+      "reddit": "",
+      "keybase": "",
+      "telegram": "",
+      "wechat":""
+    }
+  }
+}
