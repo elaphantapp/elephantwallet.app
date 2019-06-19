@@ -10,8 +10,7 @@
     <!--App自定义的css-->
     <link rel="stylesheet" type="text/css" href="./redirect/css/app.css" />
     <script type="application/javascript" src="./redirect/js/baidu_statistic.js"></script>
-    <script type="application/javascript" src="./redirect/js/qrcode.min.js"></script>
-    <script type="application/javascript" src="./redirect/js/language.js?version=1"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <style type="text/css">
     button {
@@ -91,7 +90,7 @@
         height: 100%;
     }
     
-    .parent .item {
+    .parent .item1 {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -100,220 +99,278 @@
 </style>
 
 <body>
-    <!-- pc  -->
-    <div class="mui-content" id="pc-display" style="display: none">
-        <div class="logo">
-            <img src="./redirect/img/pc-logo.png">
-        </div>
-        <!-- <div class="shuoming-0">
-            简体中文
-        </div>
-        <div class="shuoming-1">
+    <div id="app">
+        <!-- pc  -->
+        <div class="mui-content" id="pc-display" v-if="styleType===1">
+            <div class="logo">
+                <img src="./redirect/img/pc-logo.png">
+            </div>
+
+            <div class="parent">
+                <div class="item1">
+                    <div style="text-align: center;background-color: #ffffff;padding:40px 50px 20px 50px;">
+                        <!-- <div id="qrcode" style="margin:0 auto;width: 300px"></div> -->
+                        <div id="myCarousel" class="carousel slide">
+                            <!-- 轮播（Carousel）指标 -->
+                            <ol class="carousel-indicators" style="background: rgb(0, 235, 263);
+                                box-shadow: 0px 4px 4px rgba(100, 100, 100, 0.16);bottom: -55px">
+                                <li v-for="(item, key,index) in  qrArr" :class="{
+                                                'active':item.index=== 0
+                                              }" data-target="#myCarousel" data-slide-to={{item.index}} v-if="qrArr.length>1"></li>
+                            </ol>
+                            <!-- 轮播（Carousel）项目 -->
+                            <div class="carousel-inner">
+                                <div class="item" v-for="(item, key,index) in  qrArr" :class="{
+                                                'active':item.index=== 0
+                                              }">
+                                    <qrcode :value="item.data" :options="{ width: 400 }" style="display:block"></qrcode>
+                                    <div style="color: #000;position: relative;text-align: center" v-if="qrArr.length>1">{{item.index+1}}</div>
+                                </div>
+                            </div>
+                            <!-- 轮播（Carousel）导航 -->
+                            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev" style="left:-50px;" v-if="qrArr.length>1">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next" style="right:-50px;" v-if="qrArr.length>1">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                        <p v-if="qrArr.length>1" style="font-family:Bio Sans;font-size: 18px;color:#333333;margin-top: 52px">{{curLangule["pc-1"]}}</p>
+                        <p v-if="qrArr.length==1" style="font-family:Bio Sans;font-size: 18px;color:#333333;margin-top: 20px">{{curLangule["pc-1"]}}</p>
+                    </div>
+                </div>
+            </div>
 
         </div>
-        <div class="shuoming-2">
-            English
-        </div> -->
 
-        <div class="parent">
-            <div class="item">
-                <div style="text-align: center;background-color: #ffffff;padding:40px 40px 20px 40px;">
-                    <div id="qrcode" style="margin:0 auto;width: 300px"></div>
-                    <p style="font-family:Bio Sans;font-size: 18px;color:#333333;margin-top: 20px" id="pc-1"></p>
+        <!-- wechat display -->
+        <div class="mui-content" id="wechat-display" style="background-color: transparent;" v-if="styleType===2">
+            <div style="position: absolute; right: 3%; top:60px;">
+                <img src="./redirect/img/arrowup.png" alt="">
+            </div>
+            <div class="mui-text-center" style="width: 60px;height: 60px;margin: 50px auto 10px; ">
+                <img src="./redirect/img/elephant_icon.png" style="width: 100%;height: 100%;border-radius: 10px;">
+            </div>
+            <p class="mui-text-center">{{curLangule["jump_elephant_wallet"]}}</p>
+            <div class="mui-content-padded" style="color: black;">
+                <br>
+                <br>
+                <br>
+                <p style="color: black;">
+                    {{curLangule["jump_elephant_first_instruction"]}}}}
+                    <a class="mui-icon mui-icon-more"></a>
+                </p>
+                <p style="color: black;">
+                    <span>{{curLangule["jump_elephant_second_instruction_1"]}}</span>
+                    <span style="color: #CF2D28;">{{curLangule["jump_elephant_second_instruction_2"]}}</span>
+                    <span>{{curLangule["jump_elephant_second_instruction_3"]}}</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- none wechat display -->
+        <div class="mui-content" id="none-wechat-display" style="background-color: transparent;" v-if="styleType===3">
+            <div class="mui-text-center" style="width: 70px;height: 70px;margin: 80px auto 10px;">
+                <img src="./redirect/img/elephant_icon.png" style="width: 100%;height: 100%; border-radius: 12px;">
+            </div>
+            <p class="mui-text-center" style="color: black;" id="none-wechat-display-1">{{curLangule["jump_elephant_wallet"]}}</p>
+            <p class="mui-text-center" style="color: black;word-wrap:break-word;padding: 0px 10px" v-if="description">{{description}}</p>
+            <div class="mui-content-padded" style="color: black;" id="load">
+                <div style="margin-top: 135px;">
+                    <button id="buttonLaunch" type="button" onclick="launchElaphant()" class="mui-btn mui-btn-danger">{{curLangule["luanchElephant"]}}</button>
+                </div>
+                <div style="margin-top: 15px;" id="downloadExample" hidden="true">
+                    <button type="button" class="mui-btn mui-btn-danger mui-btn-outlined" onclick="window.location.href='${elephant_andriod_googleplay_download}'" id="none-wechat-display-7">{{curLangule["Download"]}}</button>
                 </div>
             </div>
         </div>
-
     </div>
-
-    <!-- wechat display -->
-    <div class="mui-content" id="wechat-display" style="background-color: transparent;display: none">
-        <div style="position: absolute; right: 3%; top:60px;">
-            <img src="./redirect/img/arrowup.png" alt="">
-        </div>
-        <div class="mui-text-center" style="width: 60px;height: 60px;margin: 50px auto 10px; ">
-            <img src="./redirect/img/elephant_icon.png" style="width: 100%;height: 100%;border-radius: 10px;">
-        </div>
-        <p class="mui-text-center" id="wechat-1"></p>
-        <div class="mui-content-padded" style="color: black;">
-            <br>
-            <br>
-            <br>
-            <p style="color: black;" id="wechat-2">
-                <a class="mui-icon mui-icon-more"></a>
-            </p>
-            <p style="color: black;">
-                <span id="wechat-3"></span>
-                <span style="color: #CF2D28;" id="wechat-4"></span>
-                <span id="wechat-5"></span>
-            </p>
-        </div>
-    </div>
-
-    <!-- none wechat display -->
-    <div class="mui-content" id="none-wechat-display" style="background-color: transparent;display: none">
-        <div class="mui-text-center" style="width: 70px;height: 70px;margin: 80px auto 10px;">
-            <img src="./redirect/img/elephant_icon.png" style="width: 100%;height: 100%; border-radius: 12px;">
-        </div>
-        <p class="mui-text-center" style="color: black;" id="none-wechat-display-1"></p>
-        <p class="mui-text-center" style="color: black;display:none;word-wrap:break-word;padding: 0px 10px" id="description"></p>
-        <div class="mui-content-padded" style="color: black;" id="load">
-            <div style="margin-top: 135px;">
-                <button id="buttonLaunch" type="button" onclick="launchElaphant()" class="mui-btn mui-btn-danger"></button>
-            </div>
-            <div style="margin-top: 15px;" id="downloadExample" hidden="true">
-                <button type="button" class="mui-btn mui-btn-danger mui-btn-outlined" onclick="window.location.href='${elephant_andriod_googleplay_download}'" id="none-wechat-display-7"></button>
-            </div>
-        </div>
-    </div>
-
 </body>
 <script src="./redirect/js/mui.min.js"></script>
 <script src="./redirect/js/clipboard.min.js"></script>
 <script src="./redirect/js/jquery.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="./redirect/js/md5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="./redirect/js/vue-qrcode.min.js"></script>
 <script>
-    function initPCchatTranslate() {
-        $("title").text(appTitle);
-        $("#pc-1").text(get_lan("pc-1"));
-    }
+    Vue.component(VueQrcode.name, VueQrcode);
+</script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            qrArr: [],
+            curLangule: {},
+            zh: {
+                "pc-1": "打开大象App扫描",
+                "jump_elephant_wallet": "大象钱包",
+                "jump_elephant_first_instruction": "1.点击右侧顶部菜单",
+                "jump_elephant_second_instruction_1": "2.然后点击",
+                "jump_elephant_second_instruction_2": "在外部浏览器中打开",
+                "jump_elephant_second_instruction_3": "进入你的钱包",
+                "luanchElephant": "启动大象钱包",
+                'Download': "Download",
+                "elephant_ios_appstore_download": "下载大象钱包", //下载大象钱包
+                "elephant_andriod_googleplay_download": "下载大象钱包", //下载大象钱包
+                "elephant_andriod_server_download": "APK下载"
+            },
+            en: {
+                "pc-1": "Open Elephant App to scan",
+                "jump_elephant_wallet": "Elephant Wallet",
+                "jump_elephant_first_instruction": "1.Tap the top-right menu",
+                "jump_elephant_second_instruction_1": "2.Then tap",
+                "jump_elephant_second_instruction_2": "Open in external browser",
+                "jump_elephant_second_instruction_3": "go to your wallet app",
+                "luanchElephant": "Launch Elephant",
+                'Download': "Download",
+                "elephant_ios_appstore_download": "Download",
+                "elephant_andriod_googleplay_download": "Download",
+                "elephant_andriod_server_download": "APK Download"
+            },
+            appTitle: "",
+            appName: "",
+            description: "",
+            redirectURL: "",
+            styleType: "",
+        },
+        methods: {
+            getLanugle: function() {
+                this.curLangule = this.en;
+                var JsSrc = (navigator.language || navigator.browserLanguage).toLowerCase();
+                if (JsSrc.indexOf('zh') >= 0) {
+                    // 假如浏览器语言是中文
+                    this.curLangule = this.zh;
+                } else if (JsSrc.indexOf('en') >= 0) {
+                    this.curLangule = this.en;
+                } else {
+                    // 假如浏览器语言是其它语言
+                    this.curLangule = this.en;
+                }
+            },
+            fixedLengthFormatString: function(str, num) {
+                var hash = md5.create();
+                hash.update(str);
+                var md5s = hash.hex();
+                if (str == null || str == undefined) return null;
+                if (!(/^[0-9]*[1-9][0-9]*$/.test(num))) return null;
+                var array = new Array();
+                let len = str.length;
+                for (var i = 0; i < (len / num); i++) {
+                    if ((i + 1) * num > len) {
+                        let totalNum = parseInt((len / num).toString());
+                        let curNum = i;
+                        array.push({
+                            "name": 'MultiQrContent',
+                            "total": totalNum + 1,
+                            "index": curNum,
+                            "data": str.substring(i * num, (i + 1) * num),
+                            "md5": md5s
+                        });
+                    } else {
+                        let totalNum = parseInt((len / num).toString());
+                        let curNum = i;
+                        array.push({
+                            "name": 'MultiQrContent',
+                            "total": totalNum + 1,
+                            "index": curNum,
+                            "data": str.substring(i * num, (i + 1) * num),
+                            "md5": md5s
+                        });
+                    }
+                }
+                return array;
+            },
+            getUrlParam: function(name) {
+                //正则表达式过滤
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+                //正则规则
+                var r = window.location.search.substr(1).match(reg);
 
+                if (r != null) return decodeURI(r[2]);
+                return null;
+            },
+            GetQueryString: function(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null)
+                    return unescape(r[2]);
+                return null;
+            },
+            launchElaphant: function() {
+                window.location.href = this.redirectURL;
+            },
+            isWechat: function() {
+                var ua = navigator.userAgent.toLowerCase();
+                return /micromessenger/i.test(ua) || typeof navigator.wxuserAgent !== 'undefined';
+            },
+            isIOSDevice: function() {
+                var u = navigator.userAgent;
+                var ios = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+                return ios;
+            },
+            isPC: function() {
+                var userAgentInfo = navigator.userAgent;
+                var Agents = ["Android", "iPhone",
+                    "SymbianOS", "Windows Phone",
+                    "iPad", "iPod"
+                ];
+                var flag = true;
+                for (var v = 0; v < Agents.length; v++) {
+                    if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                        flag = false;
+                        break;
+                    }
+                }
+                return flag;
+            },
+            init: function() {
+                document.title = this.getUrlParam("appTitle") || "";
+                this.appName = this.getUrlParam("appName") || "";
+                this.description = this.getUrlParam("description") || "";
+                this.redirectURL = this.GetQueryString("redirectURL") || "https://elephantwallet.app#download";
+                if (this.isPC()) {
+                    this.styleType = 1;
+                } else if (this.isWechat()) {
+                    this.styleType = 2;
+                } else {
+                    this.styleType = 3;
+                    this.launchElaphant();
+                    var divload = document.getElementById("load");
+                    if (this.isIOSDevice()) {
+                        var div = document.createElement("div");
+                        div.style = "margin-top: 15px;"
+                        var btn = document.createElement("button");
+                        btn.type = "button";
+                        btn.setAttribute("class", "mui-btn mui-btn-danger mui-btn-outlined")
+                        btn.setAttribute("onclick", "window.location.href='https://elephantwallet.app#download'");
+                        btn.innerText = this.curLangule["elephant_ios_appstore_download"];
+                        div.appendChild(btn);
+                        divload.appendChild(div);
 
-    function initWechatTranslate() {
-        $("title").text(appTitle);
-        $("#wechat-1").text(get_lan("jump_elephant_wallet"));
-        $("#wechat-2").text(get_lan("jump_elephant_first_instruction"));
-        $("#wechat-3").text(get_lan("jump_elephant_second_instruction_1"));
-        $("#wechat-4").text(get_lan("jump_elephant_second_instruction_2"));
-        $("#wechat-5").text(get_lan("jump_elephant_second_instruction_3"));
-    }
-
-
-    function initNoneWechatTranslate() {
-        $("title").text(appTitle);
-        $("#none-wechat-display-1").text(get_lan("jump_elephant_wallet"));
-        $("#none-wechat-display-2").text(get_lan("jump_elephant_third_instruction"));
-        $("#none-wechat-display-3").text(get_lan("jump_elephant_four_instruction"));
-        $("#none-wechat-display-4").text(get_lan("jump_elephant_third_instruction_1"));
-        $("#none-wechat-display-5").text(get_lan("jump_elephant_four_instruction_1"));
-        $("#buttonLaunch").text(get_lan("luanchElephant"));
-        $("#none-wechat-display-7").text(get_lan("Download"));
-        if (description != "") {
-            document.getElementById("description").style.display = "block";
-            $("#description").text(description);
-        } else {
-            document.getElementById("description").style.display = "none";
-        }
-    }
-
-
-    function GetQueryString(name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-        var r = window.location.search.substr(1).match(reg);
-        if (r != null)
-            return unescape(r[2]);
-        return null;
-    }
-
-
-    function getUrlParam(name) {
-        //正则表达式过滤
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-        //正则规则
-        var r = window.location.search.substr(1).match(reg);
-
-        if (r != null) return decodeURI(r[2]);
-        return null;
-
-    }
-
-    function isWechat() {
-        var ua = navigator.userAgent.toLowerCase();
-        return /micromessenger/i.test(ua) || typeof navigator.wxuserAgent !== 'undefined';
-    }
-
-    function launchElaphant() {
-        window.location.href = redirectURL;
-    }
-
-    function isIOSDevice() {
-        var u = navigator.userAgent;
-        var ios = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-        return ios;
-    }
-
-    function isPC() {
-        var userAgentInfo = navigator.userAgent;
-        var Agents = ["Android", "iPhone",
-            "SymbianOS", "Windows Phone",
-            "iPad", "iPod"
-        ];
-        var flag = true;
-        for (var v = 0; v < Agents.length; v++) {
-            if (userAgentInfo.indexOf(Agents[v]) > 0) {
-                flag = false;
-                break;
+                    } else {
+                        var divload = document.getElementById("load");
+                        var div = document.createElement("div");
+                        div.style = "margin-top: 15px;"
+                        var btn = document.createElement("button");
+                        btn.type = "button";
+                        btn.setAttribute("class", "mui-btn mui-btn-danger mui-btn-outlined");
+                        btn.setAttribute("onclick", "window.location.href='https://elephantwallet.app#download'");
+                        btn.innerText = this.curLangule["elephant_andriod_googleplay_download"];
+                        div.appendChild(btn);
+                        divload.appendChild(div);
+                    }
+                }
             }
+        },
+        created: function() {
+            this.getLanugle();
+            this.init();
+            this.qrArr = this.fixedLengthFormatString(this.redirectURL, 800);
         }
-        return flag;
-    }
-    encodeURI
-    var appName = getUrlParam("appName") || "";
-    var appTitle = getUrlParam("appTitle") || "";
-    var description = getUrlParam("description") || "";
-    var redirectURL = GetQueryString("redirectURL") || "https://elephantwallet.app#download";
-
-    var qrcode = new QRCode('qrcode', {
-        text: redirectURL,
-        width: 300,
-        height: 300,
-        colorDark: '#000000',
-        colorLight: '#ffffff',
-        correctLevel: QRCode.CorrectLevel.L
     });
-
-
-    function init() {
-        if (isPC()) {
-            document.getElementById("pc-display").style.display = "block";
-            document.getElementById("wechat-display").style.display = "none";
-            document.getElementById("none-wechat-display").style.display = "none";
-            initPCchatTranslate();
-        } else if (isWechat()) {
-            document.getElementById("pc-display").style.display = "none";
-            document.getElementById("wechat-display").style.display = "block";
-            initWechatTranslate();
-        } else {
-            document.getElementById("pc-display").style.display = "none";
-            document.getElementById("none-wechat-display").style.display = "block";
-            initNoneWechatTranslate();
-            launchElaphant();
-            var divload = document.getElementById("load");
-            if (isIOSDevice()) {
-                var div = document.createElement("div");
-                div.style = "margin-top: 15px;"
-                var btn = document.createElement("button");
-                btn.type = "button";
-                btn.setAttribute("class", "mui-btn mui-btn-danger mui-btn-outlined")
-                btn.setAttribute("onclick", "window.location.href='https://elephantwallet.app#download'");
-                btn.innerText = get_lan("elephant_ios_appstore_download");
-                div.appendChild(btn);
-                divload.appendChild(div);
-
-            } else {
-                var divload = document.getElementById("load");
-                var div = document.createElement("div");
-                div.style = "margin-top: 15px;"
-                var btn = document.createElement("button");
-                btn.type = "button";
-                btn.setAttribute("class", "mui-btn mui-btn-danger mui-btn-outlined");
-                btn.setAttribute("onclick", "window.location.href='https://elephantwallet.app#download'");
-                btn.innerText = get_lan("elephant_andriod_googleplay_download");
-                div.appendChild(btn);
-                divload.appendChild(div);
-            }
-        }
-    }
-    init();
 </script>
 
 </html>
