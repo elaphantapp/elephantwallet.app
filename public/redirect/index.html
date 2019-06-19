@@ -11,14 +11,6 @@
     <link rel="stylesheet" type="text/css" href="./redirect/css/app.css" />
     <script type="application/javascript" src="./redirect/js/baidu_statistic.js"></script>
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="./redirect/js/jquery.js"></script>
-    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="./redirect/js/md5.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="./redirect/js/vue-qrcode.min.js"></script>
-    <script>
-        Vue.component(VueQrcode.name, VueQrcode);
-    </script>
 </head>
 <style type="text/css">
     button {
@@ -38,6 +30,7 @@
     }
     
     #pc-display {
+        display: none;
         overflow: hidden;
         position: fixed;
         padding: 0;
@@ -109,7 +102,7 @@
 <body>
     <div id="app">
         <!-- pc  -->
-        <div class="mui-content" id="pc-display" v-if="styleType===1">
+        <div class="mui-content" id="pc-display">
             <div class="logo">
                 <img src="./redirect/img/pc-logo.png">
             </div>
@@ -154,7 +147,7 @@
         </div>
 
         <!-- wechat display -->
-        <div class="mui-content" id="wechat-display" style="background-color: transparent;" v-if="styleType===2">
+        <div class="mui-content" id="wechat-display" style="background-color: transparent;display:none">
             <div style="position: absolute; right: 3%; top:60px;">
                 <img src="./redirect/img/arrowup.png" alt="">
             </div>
@@ -179,7 +172,7 @@
         </div>
 
         <!-- none wechat display -->
-        <div class="mui-content" id="none-wechat-display" style="background-color: transparent;" v-if="styleType===3">
+        <div class="mui-content" id="none-wechat-display" style="background-color: transparent;display: none;">
             <div class="mui-text-center" style="width: 70px;height: 70px;margin: 80px auto 10px;">
                 <img src="./redirect/img/elephant_icon.png" style="width: 100%;height: 100%; border-radius: 12px;">
             </div>
@@ -198,6 +191,14 @@
 </body>
 <script src="./redirect/js/mui.min.js"></script>
 <script src="./redirect/js/clipboard.min.js"></script>
+<script src="./redirect/js/jquery.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="./redirect/js/md5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="./redirect/js/vue-qrcode.min.js"></script>
+<script>
+    Vue.component(VueQrcode.name, VueQrcode);
+</script>
 <script>
     var app = new Vue({
         el: '#app',
@@ -235,6 +236,7 @@
             description: "",
             redirectURL: "",
             styleType: "",
+            loading: true
         },
         methods: {
             getLanugle: function() {
@@ -332,11 +334,15 @@
                 this.description = this.getUrlParam("description") || "";
                 this.redirectURL = this.GetQueryString("redirectURL") || "https://elephantwallet.app#download";
                 if (this.isPC()) {
-                    this.styleType = 1;
+                    document.getElementById("pc-display").style.display = "block";
+                    document.getElementById("wechat-display").style.display = "none";
+                    document.getElementById("none-wechat-display").style.display = "none";
                 } else if (this.isWechat()) {
-                    this.styleType = 2;
+                    document.getElementById("pc-display").style.display = "none";
+                    document.getElementById("wechat-display").style.display = "block";
                 } else {
-                    this.styleType = 3;
+                    document.getElementById("pc-display").style.display = "none";
+                    document.getElementById("none-wechat-display").style.display = "block";
                     this.launchElaphant();
                     var divload = document.getElementById("load");
                     if (this.isIOSDevice()) {
@@ -369,6 +375,7 @@
             this.getLanugle();
             this.init();
             this.qrArr = this.fixedLengthFormatString(this.redirectURL, 800);
+            this.loading = false;
         }
     });
 </script>
