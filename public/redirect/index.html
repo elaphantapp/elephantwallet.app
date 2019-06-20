@@ -181,7 +181,7 @@
             <p class="mui-text-center" style="color: black;word-wrap:break-word;padding: 0px 10px" v-if="description">{{description}}</p>
             <div class="mui-content-padded" style="color: black;" id="load">
                 <div style="margin-top: 135px;">
-                    <button id="buttonLaunch" type="button" onclick="launchElaphant()" class="mui-btn mui-btn-danger">{{curLangule["luanchElephant"]}}</button>
+                    <button id="buttonLaunch" type="button" v-on:click="launchElaphant()" class="mui-btn mui-btn-danger">{{curLangule["luanchElephant"]}}</button>
                 </div>
                 <div style="margin-top: 15px;" id="downloadExample" hidden="true">
                     <button type="button" class="mui-btn mui-btn-danger mui-btn-outlined" onclick="window.location.href='${elephant_andriod_googleplay_download}'" id="none-wechat-display-7">{{curLangule["Download"]}}</button>
