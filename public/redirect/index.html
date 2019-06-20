@@ -124,7 +124,8 @@
                                 <div class="item" v-for="(item, key,index) in  qrArr" :class="{
                                                 'active':item.index=== 0
                                               }">
-                                    <qrcode :value="item.data" :options="{ width: 400 }" style="display:block"></qrcode>
+                                    <qrcode :value="item.data" :options="{ width: 400 }" style="display:block" v-if="qrArr.length==1"></qrcode>
+                                    <qrcode :value="JSON.stringify(item)" :options="{ width: 400 }" style="display:block" v-if="qrArr.length>1"></qrcode>
                                     <div style="color: #000;position: relative;text-align: center" v-if="qrArr.length>1">{{item.index+1}}</div>
                                 </div>
                             </div>
