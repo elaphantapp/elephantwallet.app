@@ -109,16 +109,8 @@
 
             <div class="parent">
                 <div class="item1">
-                    <div style="text-align: center;background-color: #ffffff;padding:40px 50px 20px 50px;">
-                        <!-- <div id="qrcode" style="margin:0 auto;width: 300px"></div> -->
+                    <div style="text-align: center;background-color: #ffffff;padding:20px 20px 20px 20px;">
                         <div id="myCarousel" class="carousel" data-ride="carousel" data-interval="500">
-                            <!-- 轮播（Carousel）指标 -->
-                            <ol class="carousel-indicators" style="background: rgb(0, 235, 263);
-                                box-shadow: 0px 4px 4px rgba(100, 100, 100, 0.16);bottom: -55px">
-                                <li v-for="(item, key,index) in  qrArr" :class="{
-                                                'active':item.index=== 0
-                                              }" data-target="#myCarousel" data-slide-to={{item.index}} v-if="qrArr.length>1"></li>
-                            </ol>
                             <!-- 轮播（Carousel）项目 -->
                             <div class="carousel-inner">
                                 <div class="item" v-for="(item, key,index) in  qrArr" :class="{
@@ -126,21 +118,10 @@
                                               }">
                                     <qrcode :value="item.data" :options="{ width: 400 }" style="display:block" v-if="qrArr.length==1"></qrcode>
                                     <qrcode :value="JSON.stringify(item)" :options="{ width: 400 }" style="display:block" v-if="qrArr.length>1"></qrcode>
-                                    <div style="color: #000;position: relative;text-align: center" v-if="qrArr.length>1">{{item.index+1}}</div>
                                 </div>
                             </div>
-                            <!-- 轮播（Carousel）导航 -->
-                            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev" style="left:-50px;" v-if="qrArr.length>1">
-                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next" style="right:-50px;" v-if="qrArr.length>1">
-                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
                         </div>
-                        <p v-if="qrArr.length>1" style="font-family:Bio Sans;font-size: 18px;color:#333333;margin-top: 52px">{{curLangule["pc-1"]}}</p>
-                        <p v-if="qrArr.length==1" style="font-family:Bio Sans;font-size: 18px;color:#333333;margin-top: 20px">{{curLangule["pc-1"]}}</p>
+                        <p style="font-family:Bio Sans;font-size: 18px;color:#333333;margin-top: 20px">{{curLangule["pc-1"]}}</p>
                     </div>
                 </div>
             </div>
