@@ -379,31 +379,32 @@
                 this.traceid = this.GetQueryString("traceid") || "";
                 this.redirectURL = this.GetQueryString("redirectURL") || "https://elephantwallet.app#download";
                 if (this.isPC()) {
-                    if (this.traceid != "")
-                    var urlObj = this.handleUrl(this.redirectURL);
-                    this.ReturnUrl = urlObj["ReturnUrl"];
-                    if (urlObj["ReturnUrl"] && !urlObj["CallbackUrl"]) {
-                        urlObj["CallbackUrl"] = this.CallbackUrl + urlObj["AppID"] + "/" + this.traceid;
-                        this.redirectURL = this.buildMultiCreate(urlObj);
-                        this.timer = setInterval(() => {
-                            this.getCallback(urlObj["AppID"], this.traceid).then((res) => {
-                                if (res.status === 200) {
-                                    if (res.data) {
-                                        var data = JSON.parse(res.data)["Data"];
-                                        if (this.ReturnUrl.indexOf("?") > -1) {
-                                            window.location.href = this.ReturnUrl + "&Data=" + encodeURIComponent(data);
-                                        } else {
-                                            window.location.href = this.ReturnUrl + "?Data=" + encodeURIComponent(data);
+                    if (this.traceid != "") {
+                        var urlObj = this.handleUrl(this.redirectURL);
+                        this.ReturnUrl = urlObj["ReturnUrl"];
+                        if (urlObj["ReturnUrl"] && !urlObj["CallbackUrl"]) {
+                            urlObj["CallbackUrl"] = this.CallbackUrl + urlObj["AppID"] + "/" + this.traceid;
+                            this.redirectURL = this.buildMultiCreate(urlObj);
+                            this.timer = setInterval(() => {
+                                this.getCallback(urlObj["AppID"], this.traceid).then((res) => {
+                                    if (res.status === 200) {
+                                        if (res.data) {
+                                            var data = JSON.parse(res.data)["Data"];
+                                            if (this.ReturnUrl.indexOf("?") > -1) {
+                                                window.location.href = this.ReturnUrl + "&Data=" + encodeURIComponent(data);
+                                            } else {
+                                                window.location.href = this.ReturnUrl + "?Data=" + encodeURIComponent(data);
+                                            }
+
+                                            window.clearInterval(this.timer);
                                         }
-
-                                        window.clearInterval(this.timer);
                                     }
-                                }
 
-                            }).catch((error) => {
-                                window.clearInterval(this.timer);
-                            });
-                        }, 1000);
+                                }).catch((error) => {
+                                    window.clearInterval(this.timer);
+                                });
+                            }, 1000);
+                        }
                     }
                     document.getElementById("pc-display").style.display = "block";
                     document.getElementById("wechat-display").style.display = "none";
@@ -450,105 +451,5 @@
         }
     });
 </script>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
-
-</html>
 
 </html>
