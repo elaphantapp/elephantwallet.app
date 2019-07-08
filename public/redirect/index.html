@@ -379,8 +379,8 @@
                 this.traceid = this.GetQueryString("traceid") || "";
                 this.redirectURL = this.GetQueryString("redirectURL") || "https://elephantwallet.app#download";
                 if (this.isPC()) {
-                    if (this.traceid != "")
-                    var urlObj = this.handleUrl(this.redirectURL);
+                    if (this.traceid != ""){
+                        var urlObj = this.handleUrl(this.redirectURL);
                     this.ReturnUrl = urlObj["ReturnUrl"];
                     if (urlObj["ReturnUrl"] && !urlObj["CallbackUrl"]) {
                         urlObj["CallbackUrl"] = this.CallbackUrl + urlObj["AppID"] + "/" + this.traceid;
