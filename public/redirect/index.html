@@ -390,10 +390,20 @@
                                     if (res.status === 200) {
                                         if (res.data) {
                                             var data = JSON.parse(res.data)["Data"];
+                                            var sign = JSON.parse(res.data)["Sign"] || "";
                                             if (this.ReturnUrl.indexOf("?") > -1) {
-                                                window.location.href = this.ReturnUrl + "&Data=" + encodeURIComponent(data);
+                                                if(sign === ""){
+                                                    window.location.href = this.ReturnUrl + "&Data=" + encodeURIComponent(data);
+                                                }else{
+                                                    window.location.href = this.ReturnUrl + "&Data=" + encodeURIComponent(data)+"&Sign="+sign;
+                                                }
+                                             
                                             } else {
-                                                window.location.href = this.ReturnUrl + "?Data=" + encodeURIComponent(data);
+                                                if(sign === ""){
+                                                    window.location.href = this.ReturnUrl + "?Data=" + encodeURIComponent(data);
+                                                }else{
+                                                    window.location.href = this.ReturnUrl + "?Data=" + encodeURIComponent(data)+"&Sign="+sign;
+                                                }
                                             }
 
                                             window.clearInterval(this.timer);
