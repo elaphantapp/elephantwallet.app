@@ -401,13 +401,12 @@
                                 this.getCallback(urlObj["AppID"], this.traceid).then((res) => {
                                     if (res.status === 200) {
                                         if (res.data) {
-                                            var data = JSON.parse(res.data)["Data"];
-                                            var sign = JSON.parse(res.data)["Sign"] || "";
+                                            var data = JSON.parse(res.data);
                                             if (this.ReturnUrl.indexOf("?") > -1) {
-                                                window.location.href = this.ReturnUrl + this.buildParms(res.data);
+                                                window.location.href = this.ReturnUrl + this.buildParms(data);
 
                                             } else {
-                                                window.location.href = this.ReturnUrl + "?" + this.buildParms(res.data);
+                                                window.location.href = this.ReturnUrl + "?" + this.buildParms(data);
                                             }
 
                                             window.clearInterval(this.timer);
