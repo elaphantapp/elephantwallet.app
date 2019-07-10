@@ -338,6 +338,18 @@
 
                 return url.substring(0, url.length - 1);
             },
+            buildParms(obj) {
+                var url = "";
+                var that = this;
+                _.forEach(urlObj, function(val, key, index) {
+                    if (key === 'Data') {
+                        val = encodeURIComponent(val);
+                    }
+                    url += key + '=' + val + '&';
+                });
+
+                return url.substring(0, url.length - 1);
+            },
             handleUrl(url) {
                 var str = decodeURIComponent(url);
                 var str1 = str.split("?");
@@ -392,18 +404,10 @@
                                             var data = JSON.parse(res.data)["Data"];
                                             var sign = JSON.parse(res.data)["Sign"] || "";
                                             if (this.ReturnUrl.indexOf("?") > -1) {
-                                                if(sign === ""){
-                                                    window.location.href = this.ReturnUrl + "&Data=" + encodeURIComponent(data);
-                                                }else{
-                                                    window.location.href = this.ReturnUrl + "&Data=" + encodeURIComponent(data)+"&Sign="+sign;
-                                                }
-                                             
+                                                window.location.href = this.ReturnUrl + this.buildParms(res.data);
+
                                             } else {
-                                                if(sign === ""){
-                                                    window.location.href = this.ReturnUrl + "?Data=" + encodeURIComponent(data);
-                                                }else{
-                                                    window.location.href = this.ReturnUrl + "?Data=" + encodeURIComponent(data)+"&Sign="+sign;
-                                                }
+                                                window.location.href = this.ReturnUrl + "?" + this.buildParms(res.data);
                                             }
 
                                             window.clearInterval(this.timer);
