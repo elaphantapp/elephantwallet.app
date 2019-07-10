@@ -341,7 +341,7 @@
             buildParms(obj) {
                 var url = "";
                 var that = this;
-                _.forEach(urlObj, function(val, key, index) {
+                _.forEach(obj, function(val, key, index) {
                     if (key === 'Data') {
                         val = encodeURIComponent(val);
                     }
