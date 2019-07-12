@@ -230,7 +230,8 @@
             CallbackUrl: 'https://echo.elaphant.app/api/1/ela_echo/',
             timer: "",
             traceid: "123456789",
-            ReturnUrl: ""
+            ReturnUrl: "",
+            autoRecdirect: false,
         },
         methods: {
             getLanugle: function() {
@@ -388,17 +389,19 @@
                 document.title = this.getUrlParam("appTitle") || "";
                 this.appName = this.getUrlParam("appName") || "";
                 this.description = this.getUrlParam("description") || "";
-                this.traceid = this.GetQueryString("traceid") || "";
+                //this.traceid = this.GetQueryString("traceid") || "";
+                this.autoRedirect = this.GetQueryString("autoRedirect") || "";
                 this.redirectURL = this.GetQueryString("redirectURL") || "https://elephantwallet.app#download";
                 if (this.isPC()) {
-                    if (this.traceid != "") {
+                    if (this.autoRedirect === "True") {
                         var urlObj = this.handleUrl(this.redirectURL);
                         this.ReturnUrl = urlObj["ReturnUrl"];
                         if (urlObj["ReturnUrl"] && !urlObj["CallbackUrl"]) {
-                            urlObj["CallbackUrl"] = this.CallbackUrl + urlObj["AppID"] + "/" + this.traceid;
+                            var traceid = this.generateUUID();
+                            urlObj["CallbackUrl"] = this.CallbackUrl + urlObj["AppID"] + "/" + traceid;
                             this.redirectURL = this.buildMultiCreate(urlObj);
                             this.timer = setInterval(() => {
-                                this.getCallback(urlObj["AppID"], this.traceid).then((res) => {
+                                this.getCallback(urlObj["AppID"], traceid).then((res) => {
                                     if (res.status === 200) {
                                         if (res.data) {
                                             var data = JSON.parse(res.data);
@@ -454,6 +457,19 @@
                         divload.appendChild(div);
                     }
                 }
+            },
+            generateUUID() {
+                var d = new Date().getTime();
+                if (window.performance && typeof window.performance.now === "function") {
+                    d += performance.now();
+                    //use high-precision timer if available 
+                }
+                var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                    var r = (d + Math.random() * 16) % 16 | 0;
+                    d = Math.floor(d / 16);
+                    return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+                });
+                return uuid.replace(/-/g, "");
             }
         },
         created: function() {
