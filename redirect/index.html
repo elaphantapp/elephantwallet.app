@@ -96,10 +96,14 @@
         left: 50%;
         transform: translate(-50%, -50%);
     }
+    
+    [v-cloak] {
+        display: none;
+    }
 </style>
 
 <body>
-    <div id="app">
+    <div id="app" v-cloak>
         <!-- pc  -->
         <div class="mui-content" id="pc-display">
             <div class="logo">
@@ -393,7 +397,7 @@
                 this.autoRedirect = this.GetQueryString("autoRedirect") || "";
                 this.redirectURL = this.GetQueryString("redirectURL") || "https://elephantwallet.app#download";
                 if (this.isPC()) {
-                    if (this.autoRedirect === "True") {
+                    if (this.autoRedirect === "True" || this.autoRedirect === "true") {
                         var urlObj = this.handleUrl(this.redirectURL);
                         this.ReturnUrl = urlObj["ReturnUrl"];
                         if (urlObj["ReturnUrl"] && !urlObj["CallbackUrl"]) {
