@@ -360,25 +360,25 @@
                 var str1 = str.split("?");
                 this.scmal = str1[0];
                 var str2 = "";
-                for(var i =1;i<str1.length;i++){
-                    str2  = str2+str1[i]+"?";
+                for (var i = 1; i < str1.length; i++) {
+                    str2 = str2 + str1[i] + "?";
                 }
-                str2 = str2.substring(0,str2.length - 1); 
+                str2 = str2.substring(0, str2.length - 1);
                 var parms = str2.split("&");
                 var appId = "";
                 var parms1 = {};
                 for (var index = 0; index < parms.length; index++) {
                     //ReturnUrl
-                    var key = parms[index].substring(0,9);
-                    var value = parms[index].substring(10,parms[index].length);
-                    if(key === "ReturnUrl"){
-                       
-                    }else{
-                     var  arr = parms[index].split("=");
-                         key = arr[0];
-                         value = arr[1];
+                    var key = parms[index].substring(0, 9);
+                    var value = parms[index].substring(10, parms[index].length);
+                    if (key === "ReturnUrl") {
+
+                    } else {
+                        var arr = parms[index].split("=");
+                        key = arr[0];
+                        value = arr[1];
                     }
-                   
+
                     parms1[key] = value;
                 }
 
@@ -424,10 +424,11 @@
                                             var data = JSON.parse(res.data);
                                             console.log("============" + this.ReturnUrl);
                                             if (this.ReturnUrl.indexOf("?") > -1) {
-                                                 window.location.href = this.ReturnUrl +"&"+this.buildParms(data);
+                                                
+                                                window.location.href = decodeURIComponent(this.ReturnUrl) + "&" + this.buildParms(data);
 
                                             } else {
-                                                window.location.href = this.ReturnUrl + "?" + this.buildParms(data);
+                                                window.location.href = decodeURIComponent(this.ReturnUrl) + "?" + this.buildParms(data);
                                             }
 
                                             window.clearInterval(this.timer);
