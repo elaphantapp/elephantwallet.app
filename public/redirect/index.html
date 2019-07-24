@@ -359,7 +359,7 @@
                 return url.substring(0, url.length - 1);
             },
             handleUrl(url) {
-                var str = decodeURIComponent(url);
+                var str = url;
                 var str1 = str.split("?");
                 this.scmal = str1[0];
                 var str2 = "";
@@ -425,12 +425,13 @@
                                     if (res.status === 200) {
                                         if (res.data) {
                                             var data = JSON.parse(res.data);
+                                            this.ReturnUrl = decodeURIComponent(this.ReturnUrl);
                                             if (this.ReturnUrl.indexOf("?") > -1) {
 
-                                                window.location.href = decodeURIComponent(this.ReturnUrl) + "&" + this.buildParms(data);
+                                                window.location.href = this.ReturnUrl + "&" + this.buildParms(data);
 
                                             } else {
-                                                window.location.href = decodeURIComponent(this.ReturnUrl) + "?" + this.buildParms(data);
+                                                window.location.href = this.ReturnUrl + "?" + this.buildParms(data);
                                             }
 
                                             window.clearInterval(this.timer);
