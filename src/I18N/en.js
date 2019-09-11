@@ -13,7 +13,7 @@ export default {
     roadmap: 'Roadmap',
     developer: {
       title: 'DEVELOPER',
-      link: 'https://github.com/elastos/Elastos.Developer.Doc/blob/master/EN/6.%20Advanced%20Guides/11.%20ElephantWallet.md',
+      link: 'https://github.com/elaphantapp/DeveloperDoc/blob/master/README.md',
     },
     github: {
       title: 'GITHUB REPO',
