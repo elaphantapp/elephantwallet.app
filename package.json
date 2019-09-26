@@ -7,7 +7,7 @@
   "scripts": {
     "start": "react-static start",
     "stage": "react-static build --staging",
-    "build": "react-static build; cp bpinfo.json ./dist/bpinfo.json;cp elaphant_logo_256.png ./dist/elaphant_logo_256.png;cp elaphant_logo_512.png ./dist/elaphant_logo_512.png;",
+    "build": "react-static build; cp CNAME ./dist/CNAME; cp bpinfo.json ./dist/bpinfo.json;cp elaphant_logo_256.png ./dist/elaphant_logo_256.png;cp elaphant_logo_512.png ./dist/elaphant_logo_512.png;",
     "serve": "serve dist -p 3000",
     "deploy": "gh-pages -d dist"
   },
