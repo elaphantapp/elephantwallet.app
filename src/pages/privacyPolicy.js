@@ -280,7 +280,7 @@ export default () => (
 
       <h3 id="contactus">Contact Us</h3>
 
-      <p>If you have any questions about this Privacy Policy, please contact us by email: contact@elastos.org</p>
+      <p>If you have any questions about this Privacy Policy, please contact us by email: support@elaphant.app</p>
     </Inner>
   </Container>
 )
