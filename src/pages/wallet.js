@@ -34,7 +34,7 @@ export default class extends React.Component {
                   Our ecosystem wallet with all our partners and more
                   <br/>
                   <br/>
-                  <a href="https://download.elastos.org/app/elephantwallet/elephant_wallet.apk">Download</a>
+                  <a href="./elephant_wallet.apk">Download</a>
                 </ItemText>
               </ItemContent>
             </Item>
