@@ -7,7 +7,7 @@
   "scripts": {
     "start": "react-static start",
     "stage": "react-static build --staging",
-    "build": "react-static build;cp *.capsule ./dist/; cp *.apk ./dist; cp bpinfo.json ./dist/bpinfo.json;cp elaphant_logo_256.png ./dist/elaphant_logo_256.png;cp elaphant_logo_512.png ./dist/elaphant_logo_512.png;",
+    "build": "react-static build;cp CNAME ./dist/; cp *.capsule ./dist/; cp *.apk ./dist; cp bpinfo.json ./dist/bpinfo.json;cp elaphant_logo_256.png ./dist/elaphant_logo_256.png;cp elaphant_logo_512.png ./dist/elaphant_logo_512.png;",
     "serve": "serve dist -p 3000",
     "deploy": "gh-pages -d dist"
   },
@@ -16,7 +16,7 @@
     "antd": "^3.15.0",
     "gh-pages": "^2.0.1",
     "history": "^4.7.2",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.15",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-responsive": "^6.1.1",
