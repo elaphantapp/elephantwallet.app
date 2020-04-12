@@ -10,12 +10,31 @@ export default {
   header: {
     elastos: 'ELASTOS官网',
     telegram: 'TELEGRAM群',
-    roadmap: '路线图',
+    tools: '工具',
     developer: {
       title: '开发者',
       link: 'https://github.com/elaphantapp/DeveloperDoc/blob/master/README.md',
     },
     privacyPolicy: '隐私政策',
+	Tools: {
+      title: '工具',
+      mnemonic: {
+        title: '助记词',
+        url: 'https://elaphant.app/mnemonic.html',
+      },
+      tradingHistory: {
+        title: '交易记录',
+        url: 'https://elaphant.app/history.html?address=[Your_Wallet_Address]&pageNum=1',
+      },
+	  userStatistics: {
+        title: '用户统计',
+        url: 'https://elaphant.app/elaphant_users.html',
+      },
+	  multiSignWallet: {
+        title: '多签钱包',
+        url: 'https://jointaccount.elaphant.app/',
+      },	
+    },  
     github: {
       title: 'GITHUB仓库',
       ios: {

@@ -34,7 +34,16 @@ export default class App extends React.Component {
           <NavBar>
             <a href={I18N.get('links.elastos')} target="_blank" rel="noopener noreferrer">{I18N.get('header.elastos')}</a>
             <a href={I18N.get('links.telegram')} target="_blank" rel="noopener noreferrer">{I18N.get('header.telegram')}</a>
-            <a href={I18N.get('links.roadmap')} target="_blank" rel="noopener noreferrer">{I18N.get('header.roadmap')}</a>
+            <Dropdown overlay={this.getTools()}>
+              <a href="#">{I18N.get('header.Tools.title')}
+                <DropdownIcon src={dropdown} alt="dropdown" />
+              </a>
+            </Dropdown>
+            <Dropdown overlay={this.getLanguageMenu()}>
+              <a href="#">{I18N.get('header.language.title')}
+                <DropdownIcon src={dropdown} alt="dropdown" />
+              </a>
+            </Dropdown>
             <a href={I18N.get('header.developer.link')} rel="noopener noreferrer">{I18N.get('header.developer.title')}</a>
             <Dropdown overlay={this.getGithubMenu()}>
               <a href="#">{I18N.get('header.github.title')}
@@ -62,6 +71,25 @@ export default class App extends React.Component {
           </Drawer>
         </MediaQuery>
       </Container>
+    )
+  }
+  
+  getTools () {
+    return (
+      <Menu>
+        <Menu.Item>
+          <MenuLink href={I18N.get('header.Tools.mnemonic.url')} target="_blank" rel="noopener noreferrer">{I18N.get('header.Tools.mnemonic.title')}</MenuLink>
+        </Menu.Item>
+        <Menu.Item>
+          <MenuLink href={I18N.get('header.Tools.tradingHistory.url')} target="_blank" rel="noopener noreferrer">{I18N.get('header.Tools.tradingHistory.title')}</MenuLink>
+        </Menu.Item>
+        <Menu.Item>
+          <MenuLink href={I18N.get('header.Tools.userStatistics.url')} target="_blank" rel="noopener noreferrer">{I18N.get('header.Tools.userStatistics.title')}</MenuLink>
+        </Menu.Item>
+        <Menu.Item>
+          <MenuLink href={I18N.get('header.Tools.multiSignWallet.url')} target="_blank" rel="noopener noreferrer">{I18N.get('header.Tools.multiSignWallet.title')}</MenuLink>
+        </Menu.Item>
+      </Menu>
     )
   }
 

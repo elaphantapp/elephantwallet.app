@@ -10,11 +10,30 @@ export default {
   header: {
     elastos: 'ELASTOS HOMEPAGE',
     telegram: 'TELEGRAM GROUP',
-    roadmap: 'Roadmap',
+    tools: 'Tools',
     developer: {
       title: 'DEVELOPER',
       link: 'https://github.com/elaphantapp/DeveloperDoc/blob/master/README.md',
     },
+	Tools: {
+      title: 'Tools',
+      mnemonic: {
+        title: 'Mnemonic',
+        url: 'https://elaphant.app/mnemonic.html',
+      },
+      tradingHistory: {
+        title: 'Trading History',
+        url: 'https://elaphant.app/history.html?address=[Your_Wallet_Address]&pageNum=1',
+      },
+	  userStatistics: {
+        title: 'User Statistics',
+        url: 'https://elaphant.app/elaphant_users.html',
+      },
+	  multiSignWallet: {
+        title: 'Multi-Sign Wallet',
+        url: 'https://jointaccount.elaphant.app/',
+      },
+    },   
     github: {
       title: 'GITHUB REPO',
       ios: {
