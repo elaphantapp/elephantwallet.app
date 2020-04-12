@@ -128,8 +128,17 @@ export default class App extends React.Component {
         <Menu.Item>
           <MenuLink href={I18N.get('links.telegram')} target="_blank" rel="noopener noreferrer">{I18N.get('header.telegram')}</MenuLink>
         </Menu.Item>
+         <Menu.Item>
+          <MenuLink href={I18N.get('header.Tools.mnemonic.url')} target="_blank" rel="noopener noreferrer">{I18N.get('header.Tools.mnemonic.title')}</MenuLink>
+        </Menu.Item>
         <Menu.Item>
-          <MenuLink href={I18N.get('links.roadmap')} target="_blank" rel="noopener noreferrer">{I18N.get('header.roadmap')}</MenuLink>
+          <MenuLink href={I18N.get('header.Tools.tradingHistory.url')} target="_blank" rel="noopener noreferrer">{I18N.get('header.Tools.tradingHistory.title')}</MenuLink>
+        </Menu.Item>
+        <Menu.Item>
+          <MenuLink href={I18N.get('header.Tools.userStatistics.url')} target="_blank" rel="noopener noreferrer">{I18N.get('header.Tools.userStatistics.title')}</MenuLink>
+        </Menu.Item>
+        <Menu.Item>
+          <MenuLink href={I18N.get('header.Tools.multiSignWallet.url')} target="_blank" rel="noopener noreferrer">{I18N.get('header.Tools.multiSignWallet.title')}</MenuLink>
         </Menu.Item>
         <Menu.Item>
           <MenuLink href={I18N.get('header.developer.link')} target="_blank" rel="noopener noreferrer">{I18N.get('header.developer.title')}</MenuLink>
