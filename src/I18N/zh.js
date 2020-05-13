@@ -24,7 +24,7 @@ export default {
       },
       tradingHistory: {
         title: '交易记录',
-        url: 'https://elaphant.app/history.html?address=[Your_Wallet_Address]&pageNum=1',
+        url: 'https://elaphant.app/history.html',
       },
 	  userStatistics: {
         title: '用户统计',
@@ -101,14 +101,14 @@ export default {
         help: '中国大陆Apple ID无法下载，请申请海外Apple ID。',
         btnText: '注册海外Apple ID向导',
         helpLink: 'https://www.elastos.org/downloads/apple-id-tutorial.pdf',
-        storeLink: 'https://itunes.apple.com/app/elastos-elephant-wallet/id1446241279',
+        storeLink: 'https://apps.apple.com/us/app/elastos-elephant-wallet/id1446241279?ls=1',
         storeImg: images.appstore_button_img,
       },
       android: {
         help: '直接下载APK',
         btnText: 'Android apk',
-        helpLink: 'https://download.elastos.org/app/elephantwallet/index.html',
-        storeLink: 'https://play.google.com/store/apps/details?id=com.elastos.wallet',
+        helpLink: 'https://elaphant.app/elaphant_1.99.1.apk',
+        storeLink: 'https://play.google.com/store/apps/details?id=org.elastos.elephantwallet',
         storeImg: images.googleplay_button_img,
       },
     },

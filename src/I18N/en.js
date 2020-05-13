@@ -23,7 +23,7 @@ export default {
       },
       tradingHistory: {
         title: 'Trading History',
-        url: 'https://elaphant.app/history.html?address=[Your_Wallet_Address]&pageNum=1',
+        url: 'https://elaphant.app/history.html',
       },
 	  userStatistics: {
         title: 'User Statistics',
@@ -100,14 +100,14 @@ export default {
         help: 'Chinese users please use the button below for help with creating and Apple ID.',
         btnText: 'Apple ID Help',
         helpLink: 'https://www.elastos.org/downloads/apple-id-tutorial.pdf',
-        storeLink: 'https://itunes.apple.com/app/elastos-elephant-wallet/id1446241279',
+        storeLink: 'https://apps.apple.com/us/app/elastos-elephant-wallet/id1446241279?ls=1',
         storeImg: images.appstore_button_img,
       },
       android: {
         help: 'Use the button below to directly download the apk.',
         btnText: 'Android apk',
-        helpLink: 'https://download.elastos.org/app/elephantwallet/elephant_wallet.apk',
-        storeLink: 'https://play.google.com/store/apps/details?id=com.elastos.wallet',
+        helpLink: 'https://elaphant.app/elaphant_1.99.1.apk',
+        storeLink: 'https://play.google.com/store/apps/details?id=org.elastos.elephantwallet',
         storeImg: images.googleplay_button_img,
       },
     },
