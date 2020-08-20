@@ -32,15 +32,9 @@ export default class App extends React.Component {
 
         <MediaQuery minWidth={breakPoint.mobile}>
           <NavBar>
-            <a href={I18N.get('links.elastos')} target="_blank" rel="noopener noreferrer">{I18N.get('header.elastos')}</a>
             <a href={I18N.get('links.telegram')} target="_blank" rel="noopener noreferrer">{I18N.get('header.telegram')}</a>
             <Dropdown overlay={this.getTools()}>
               <a href="#">{I18N.get('header.Tools.title')}
-                <DropdownIcon src={dropdown} alt="dropdown" />
-              </a>
-            </Dropdown>
-            <Dropdown overlay={this.getLanguageMenu()}>
-              <a href="#">{I18N.get('header.language.title')}
                 <DropdownIcon src={dropdown} alt="dropdown" />
               </a>
             </Dropdown>
@@ -122,9 +116,6 @@ export default class App extends React.Component {
   getMobileMenu () {
     return (
       <Menu>
-        <Menu.Item>
-          <MenuLink href={I18N.get('links.elastos')} target="_blank" rel="noopener noreferrer">{I18N.get('header.elastos')}</MenuLink>
-        </Menu.Item>
         <Menu.Item>
           <MenuLink href={I18N.get('links.telegram')} target="_blank" rel="noopener noreferrer">{I18N.get('header.telegram')}</MenuLink>
         </Menu.Item>

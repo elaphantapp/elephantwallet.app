@@ -2,13 +2,11 @@ import images from '../constants/images'
 
 export default {
   links: {
-    elastos: 'https://elastos.org',
     telegram: 'https://t.me/elastoswalletelephant',
     privacyPolicy: '/privacy-policy',
     roadmap: 'https://trello.com/b/goEpaLLf/elephant-wallet',
   },
   header: {
-    elastos: 'ELASTOS HOMEPAGE',
     telegram: 'TELEGRAM GROUP',
     tools: 'Tools',
     developer: {
