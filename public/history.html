@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>ELA Address History</title>
 
-    <script src="/cdn-cgi/apps/head/dx5_rx9W9xw_2EqdF7hfpZDR4xw.js"></script><link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/default/easyui.css">
     <link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/icon.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
@@ -20,7 +20,7 @@
                     return;
                 $("#tt").loading('toggle');
                 $.ajax({
-                    url: "https://node1.elaphant.app/api/v1/crc/voter/list/100000000",
+                    url: "https://node1.elaphant.app/api/1/history/"+address+"?pageSize=99999999&pageNum=99999999",
                     type: "get",
                     data:{},
                     dataType: "json",
@@ -54,30 +54,88 @@
                 }
             };
 
+
+            var address = getUrlParameter('address');
+            var page = getUrlParameter('page');
+            var pageSize = getUrlParameter('pageSize');
+
+            if (paramNum == 0 || page == undefined || pageSize == undefined || address ==  undefined)
+                return;
+
+            $("#address").val(address);
+            $("#currentPage").html(page);
+            $("#pageSize").html(pageSize);
+
+            pageSize = parseInt(pageSize);
+            page = parseInt(page);
+
+            $("#tt").loading('toggle');
+
             $.ajax({
-                url: "https://node1.elaphant.app/api/v1/crc/voter/list/100000000",
+                url: "https://node1.elaphant.app/api/1/history/"+address+"?pageSize="+pageSize+"&pageNum="+page,
                 type: "get",
                 data:{},
                 dataType: "json",
                 success: function (data) {
-                    
-                    // address, crc votes, transaction count, has voted dpos, create time, history 
-                    for (var item of data.result) {
-                        var tl = document.createElement("tr");
-
-                        for (var i=0; i<5; ++i) {
-                            var td = document.createElement("td");
-                            tl.appendChild(td);
-                        }
-
-                        $("#tt").append(tl);
+                    if (page * pageSize > data.result.TotalNum + pageSize -1) {
+                        var total = data.result.TotalNum;
+                        var lastPage = parseInt((total + pageSize-1 ) / pageSize);
+                        var url = window.location.pathname+"?address="+address+"&page="+lastPage+"&pageSize="+pageSize;
+                        window.location.replace(url);       
+                        return;                 
                     }
-
+                    $('#total').text(data.result.TotalNum);
+                    $('#totalPages').text(parseInt((data.result.TotalNum+pageSize-1)/pageSize));
+                    $('#tt').datagrid({
+                        data: data.result.History.reverse(),
+                        title: 'Your ELA history',
+                        columns:[[
+                            {title:'Txid',field:'Txid',align:'center'},
+                            {title:'Type',field:'Type',align:'center'},
+                            {title:'Amount',field:'Value', align:'center', formatter: function(value,row,index){
+                                if (row.Value){
+                                    return value / 100000000;
+                                } else {
+                                    return value;
+                                }
+                            }},
+                            {title:'CreateTime',field:'CreateTime', align:'center', formatter: function(value,row,index){
+                                if (row.CreateTime){
+                                    return convertTimestamp(value);
+                                } else {
+                                    return value;
+                                }
+                            }},
+                            {title:'Height',field:'Height', align:'center'},
+                            {title:'Fee',field:'Fee', align:'center'},
+                            {title:'Inputs',field:'Inputs', align:'center'},
+                            {title:'Outputs',field:'Outputs', align:'center'},
+                            {title:'Memo',field:'Memo', align:'center'}
+                        ]]
+                    });
                     $("#tt").loading('stop');
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     console.log("error");
                 }
+            });
+
+            $("#prev").click(function() {
+                if (page > 1)
+                    page -= 1;
+
+                var url = window.location.pathname+"?address="+address+"&page="+page+"&pageSize="+pageSize;
+                window.location.href = url;
+            });
+
+            $("#next").click(function() {
+                var lastPage = parseInt($('#totalPages').html());
+                if (page < lastPage) {
+                    page += 1;
+                    var url = window.location.pathname+"?address="+address+"&page="+page+"&pageSize="+pageSize;
+                    window.location.href = url;
+                }
+
             });
         });
             
@@ -85,7 +143,13 @@
     </script>
  
 </head>
-
+<p>ELA Address:<input id="address" style="width:300" /></p>
+<p><button id="load">Load</button></p>
+<p>Total records: <span id="total"></span></p>
+<p>Current Page: <span id="currentPage"></span></p>
+<p>Page Size: <span id="pageSize"></span></p>
+<p>Total Pages: <span id="totalPages"></span></p>
+<p><button id="prev">Prev Page</button><button id="next">Next Page</button></p>
 <table id="tt">
 </table>
 
