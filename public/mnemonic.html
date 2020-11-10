@@ -1,0 +1,187 @@
+<html>
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <link rel="stylesheet" href="https://zuohuahua.github.io/Elastos.Tools.Creator.Capsule/css/bootstrap-3.3.7.css">
+    <link rel="stylesheet" href="https://zuohuahua.github.io/Elastos.Tools.Creator.Capsule/css/app.css">
+
+<style>
+    textarea {
+        font-size: 20px;
+        vertical-align: middle;
+    }
+
+    lable {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+</style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="text-center">Mnemonic</h1>
+        <hr>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Mnemonic</h2>
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-10">
+                            <p>You can enter an existing BIP39 mnemonic, or generate a new random one. </p>
+                            <button id="generate" type="button" class="btn generate"><b>GENERATE</b></button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phrase" class="col-sm-2 control-label">Mnemonic</label>
+                        <div class="col-sm-10">
+                            <textarea id="mnemonic" class="phrase private-data form-control" data-show-qr autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="seed" class="col-sm-2 control-label">Seed</label>
+                        <div class="col-sm-10">
+                            <textarea id="seed" class="seed private-data form-control" data-show-qr autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="network-phrase" class="col-sm-2 control-label">Coin</label>
+                        <div class="col-sm-10">
+                            <select id="network-phrase" class="network form-control">
+                                <!-- populated by javascript -->
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phrase" class="col-sm-2 control-label">path</label>
+                        <div class="col-sm-10">
+                            <input id="purpose" type="text" class="purpose form-control" value="0" readonly>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label class="col-sm-2 control-label" id="standard-ela">
+                                <input class="standard-path" type="checkbox">
+                                <span>Use standard path</span>
+                            </label>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-12">
+                    <h2>Derived Addresses</h2>
+                    <p>Note these addresses are derived from the BIP32 Extended Key</p>
+                </div>
+                <div class="col-md-12">
+                    <div class="checkbox">
+                        <label>
+                            <input class="hardened-addresses" type="checkbox">
+                            <span>Use hardened addresses</span>
+                        </label>
+                    </div>
+                </div>
+                <ul class="addresses-type nav nav-tabs" role="tablist">
+                    <li id="table-tab" class="active">
+                        <a href="#table" role="tab" data-toggle="tab">Table</a>
+                    </li>
+                    <li id="csv-tab">
+                        <a href="#csv" role="tab" data-toggle="tab">CSV</a>
+                    </li>
+                </ul>
+                <div class="addresses-type tab-content">
+                    <div id="table" class="tab-pane active">
+                        <div class="col-md-12">
+                            <table class="table table-striped">
+                                <thead>
+                                    <th>
+                                        <div class="input-group">
+                                            <span>Path</span>&nbsp;&nbsp;
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="input-group">
+                                            <span>Address</span>&nbsp;&nbsp;
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="input-group">
+                                            <span>Public Key</span>&nbsp;&nbsp;
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="input-group">
+                                            <span>Private Key</span>&nbsp;&nbsp;
+                                        </div>
+                                    </th>
+                                    <th display>
+                                        <div class="input-group">
+                                            <span>Did</span>&nbsp;&nbsp;
+                                        </div>
+                                    </th>
+                                </thead>
+                                <tbody class="addresses monospace">
+                                    <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                                    <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                                    <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                                    <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                                    <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="csv" class="tab-pane">
+                        <div class="col-md-12">
+                            <textarea class="csv form-control" rows="25" readonly autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <span>Show</span>
+            <input type="number" class="rows-to-add" value="20">
+            <button class="more">more rows</button>
+            <span>starting from index</span>
+            <input type="number" class="more-rows-start-index">
+            <span>(leave blank to generate from next index)</span>
+        </div>
+
+    </div>
+
+    <div class="feedback-container">
+        <div class="feedback">Loading...</div>
+    </div>
+
+    <script type="text/template" id="address-row-template">
+        <tr>
+            <td class="index"><span></span></td>
+            <td class="address"><span data-show-qr></span></td>
+            <td class="pubkey"><span data-show-qr></span></td>
+            <td class="privkey private-data"><span data-show-qr></span></td>
+            <td class="did"><span data-show-qr></span></td>
+        </tr>
+    </script>
+
+    <script src="https://zuohuahua.github.io/Elastos.Tools.Creator.Capsule/js/bitcore-tools.js"></script>
+    <script src="https://zuohuahua.github.io/Elastos.Tools.Creator.Capsule/js/jquery-3.2.1.js"></script>
+    <script src="https://zuohuahua.github.io/Elastos.Tools.Creator.Capsule/js/bootstrap-3.3.7.js"></script>
+    <script src="https://zuohuahua.github.io/Elastos.Tools.Creator.Capsule/js/CryptoJS/rollups/md5.js"></script>
+    <script src="https://zuohuahua.github.io/Elastos.Tools.Creator.Capsule/js/filecoin.js"></script>
+    <script src="https://zuohuahua.github.io/Elastos.Tools.Creator.Capsule/js/index.js"></script>
+
+</body>
+</html>

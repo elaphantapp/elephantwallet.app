@@ -1,0 +1,94 @@
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ELA Address History</title>
+
+    <script src="/cdn-cgi/apps/head/dx5_rx9W9xw_2EqdF7hfpZDR4xw.js"></script><link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/icon.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/jquery-easy-loading/dist/jquery.loading.min.js"></script>
+
+ 
+    <script type="text/javascript">
+        $(function () {
+
+            $("#load").click(function() {
+                var address = $("#address").val();
+                if (address.length != 34 || (address[0] != 'E' && address[0] != '8'))
+                    return;
+                $("#tt").loading('toggle');
+                $.ajax({
+                    url: "https://node1.elaphant.app/api/v1/crc/voter/list/100000000",
+                    type: "get",
+                    data:{},
+                    dataType: "json",
+                    success: function (data) {
+                        var total = data.result.TotalNum;
+                        var page = parseInt((total + 99 ) / 100);
+                        var url = window.location.pathname+"?address="+address+"&page="+page+"&pageSize=100";
+                        window.location.replace(url);
+                    }
+                });
+            });
+
+            var convertTimestamp = function (unix_timestamp) {
+                var date = new Date(unix_timestamp * 1000);
+                return date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+            }
+
+            var paramNum = 0;
+            var getUrlParameter = function getUrlParameter(sParam) {
+                var sPageURL = window.location.search.substring(1),
+                    sURLVariables = sPageURL.split('&'),
+                    sParameterName,
+                    i;
+                paramNum = sURLVariables.length;
+                for (i = 0; i < sURLVariables.length; i++) {
+                    sParameterName = sURLVariables[i].split('=');
+
+                    if (sParameterName[0] === sParam) {
+                        return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                    }
+                }
+            };
+
+            $.ajax({
+                url: "https://node1.elaphant.app/api/v1/crc/voter/list/100000000",
+                type: "get",
+                data:{},
+                dataType: "json",
+                success: function (data) {
+                    
+                    // address, crc votes, transaction count, has voted dpos, create time, history 
+                    for (var item of data.result) {
+                        var tl = document.createElement("tr");
+
+                        for (var i=0; i<5; ++i) {
+                            var td = document.createElement("td");
+                            tl.appendChild(td);
+                        }
+
+                        $("#tt").append(tl);
+                    }
+
+                    $("#tt").loading('stop');
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log("error");
+                }
+            });
+        });
+            
+
+    </script>
+ 
+</head>
+
+<table id="tt">
+</table>
+
+ 
+</body>
+</html>
