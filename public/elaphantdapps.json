@@ -1,0 +1,41 @@
+{
+    "name": "Elaphant",
+    "version": {
+        "major": 1,
+        "minor": 0,
+        "patch": 0
+    },
+    "dapps": [
+        {
+            "name": "TokSwap",
+            "icon": "https://tokswap.net/favicon.png",
+            "url": "https://tokswap.net",
+            "network": 20
+        },
+        {
+            "name": "TokBridge",
+            "icon": "https://tokbridge.net/favicon.ico",
+            "url": "https://tokbridge.net",
+            "network": 20
+        },
+        {
+            "name": "Quicksilver",
+            "icon": "https://quicksilver.finance/favicon.ico",
+            "url": "https://quicksilver.finance",
+            "network": 20
+        },
+        {
+            "name": "ELA Red Packet",
+            "icon": "https://raw.githubusercontent.com/elaphantapp/MiniApps.MiniApp/master/images/redpacket.jpg",
+            "url": "https://redpacket.elastos.org",
+            "network": 20
+        },
+        {
+            "name": "More...",
+            "icon": "https://raw.githubusercontent.com/elaphantapp/MiniApps.MiniApp/master/images/icon.jpg",
+            "url": "https://miniapps.elaphant.app",
+            "network": 20
+        }
+    ]
+}
+
