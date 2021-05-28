@@ -1,7 +1,7 @@
 {
     "name": "Elaphant",
     "version": {
-        "major": 1,
+        "major": 2,
         "minor": 0,
         "patch": 0
     },
@@ -19,9 +19,15 @@
             "network": 20
         },
         {
-            "name": "Quicksilver",
-            "icon": "https://quicksilver.finance/favicon.ico",
-            "url": "https://quicksilver.finance",
+            "name": "CreDA",
+            "icon": "https://beta.creda.app/favicon.ico",
+            "url": "https://beta.creda.app",
+            "network": 20
+        },
+        {
+            "name": "ELA Nodes",
+            "icon": "https://elanodes.com/logos/Starfish.png",
+            "url": "https://elanodes.com",
             "network": 20
         },
         {
@@ -38,4 +44,3 @@
         }
     ]
 }
-
