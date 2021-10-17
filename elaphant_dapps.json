@@ -19,9 +19,15 @@
             "network": 20
         },
         {
+            "name": "Glide",
+            "icon": "https://glidefinance.io/favicon-32x32.png",
+            "url": "https://glidefinance.io/swap",
+            "network": 20
+        },
+        {
             "name": "CreDA",
             "icon": "https://beta.creda.app/favicon.ico",
-            "url": "https://beta.creda.app",
+            "url": "https://creda.app",
             "network": 20
         },
         {
